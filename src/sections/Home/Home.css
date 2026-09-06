@@ -1,0 +1,90 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(20px, -20px);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+@keyframes orbitReverse {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(-315deg);
+  }
+}
+
+@keyframes glassFloat {
+  0%,
+  100% {
+    transform: rotate(3deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-3deg) translateY(-8px);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.home-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.home-float-slow {
+  animation: floatSlow 9s ease-in-out infinite;
+}
+
+.home-float-reverse {
+  animation: floatReverse 11s ease-in-out infinite;
+}
+
+.home-orbit-reverse {
+  animation: orbitReverse 30s linear infinite;
+}
+
+.home-glass-float {
+  animation: glassFloat 7s ease-in-out infinite;
+}
+
+.home-glow {
+  animation: glowPulse 4s ease-in-out infinite;
+}

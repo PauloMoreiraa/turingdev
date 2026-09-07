@@ -16,47 +16,95 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+      const scrollY = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll);
+      /*
+       * Ativa o fundo da navbar depois que
+       * o usuário começa a rolar.
+       */
+      setScrolled(scrollY > 20);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      /*
+       * Descobre qual seção está ocupando
+       * a posição atual da tela.
+       *
+       * Usamos o centro da viewport como referência.
+       * Isso evita que duas seções sejam consideradas
+       * ativas ao mesmo tempo.
+       */
+      const viewportCenter =
+        scrollY + window.innerHeight / 2;
 
-  useEffect(() => {
-    const sections = links
-      .map((link) => document.querySelector(link.href))
-      .filter((section) => section !== null);
+      let currentSection = "#inicio";
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              b.intersectionRatio - a.intersectionRatio
-          );
+      for (const link of links) {
+        const section = document.querySelector(
+          link.href
+        ) as HTMLElement | null;
 
-        if (visibleSections.length > 0) {
-          setActiveSection(
-            `#${visibleSections[0].target.id}`
-          );
+        if (!section) continue;
+
+        const sectionTop = section.offsetTop;
+        const sectionBottom =
+          sectionTop + section.offsetHeight;
+
+        if (
+          viewportCenter >= sectionTop &&
+          viewportCenter < sectionBottom
+        ) {
+          currentSection = link.href;
+          break;
         }
-      },
-      {
-        threshold: [0.3, 0.5, 0.7],
       }
+
+      /*
+       * Caso o usuário esteja próximo do final
+       * da página, garante que a última seção
+       * seja ativada.
+       */
+      const pageBottom =
+        scrollY + window.innerHeight;
+
+      const documentHeight =
+        document.documentElement.scrollHeight;
+
+      if (
+        pageBottom >= documentHeight - 5
+      ) {
+        currentSection =
+          links[links.length - 1].href;
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    /*
+     * Executa imediatamente para definir
+     * a seção correta ao carregar a página.
+     */
+    handleScroll();
+
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      { passive: true }
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    window.addEventListener(
+      "resize",
+      handleScroll
+    );
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+      window.removeEventListener(
+        "resize",
+        handleScroll
+      );
     };
   }, []);
 
@@ -64,7 +112,8 @@ export default function Navbar() {
     setMenuOpen(false);
   };
 
-  const glassActive = scrolled || menuOpen;
+  const glassActive =
+    scrolled || menuOpen;
 
   return (
     <header
@@ -93,14 +142,33 @@ export default function Navbar() {
       `}
     >
       {/* NAVBAR */}
-      <nav className="w-full px-5 py-4 sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-
+      <nav
+        className="
+          w-full
+          px-5
+          py-4
+          sm:px-8
+          lg:px-12
+        "
+      >
+        <div
+          className="
+            mx-auto
+            flex
+            max-w-7xl
+            items-center
+            justify-between
+          "
+        >
           {/* LOGO */}
           <a
             href="#inicio"
             onClick={closeMenu}
-            className="flex items-center gap-3"
+            className="
+              flex
+              items-center
+              gap-3
+            "
           >
             <img
               src="/images/logo.png"
@@ -123,15 +191,32 @@ export default function Navbar() {
                 lg:text-2xl
               "
             >
-              Turing<span className="text-sky-400">Dev</span>
+              Turing
+              <span className="text-sky-400">
+                Dev
+              </span>
             </span>
           </a>
 
           {/* DESKTOP MENU */}
-          <div className="hidden items-center gap-6 lg:flex">
-            <div className="flex items-center gap-1">
+          <div
+            className="
+              hidden
+              items-center
+              gap-6
+              lg:flex
+            "
+          >
+            <div
+              className="
+                flex
+                items-center
+                gap-1
+              "
+            >
               {links.map((link) => {
-                const isActive = activeSection === link.href;
+                const isActive =
+                  activeSection === link.href;
 
                 return (
                   <a
@@ -210,9 +295,15 @@ export default function Navbar() {
           {/* BOTÃO MOBILE */}
           <button
             type="button"
-            onClick={() => setMenuOpen((prev) => !prev)}
+            onClick={() =>
+              setMenuOpen(
+                (prev) => !prev
+              )
+            }
             aria-label={
-              menuOpen ? "Fechar menu" : "Abrir menu"
+              menuOpen
+                ? "Fechar menu"
+                : "Abrir menu"
             }
             aria-expanded={menuOpen}
             className="
@@ -258,7 +349,14 @@ export default function Navbar() {
           }
         `}
       >
-        <div className="px-5 pb-5 pt-2 sm:px-8">
+        <div
+          className="
+            px-5
+            pb-5
+            pt-2
+            sm:px-8
+          "
+        >
           <div
             className="
               mx-auto
@@ -272,9 +370,16 @@ export default function Navbar() {
             "
           >
             {/* LINKS MOBILE */}
-            <div className="flex flex-col gap-1">
+            <div
+              className="
+                flex
+                flex-col
+                gap-1
+              "
+            >
               {links.map((link) => {
-                const isActive = activeSection === link.href;
+                const isActive =
+                  activeSection === link.href;
 
                 return (
                   <a

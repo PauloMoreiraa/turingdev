@@ -66,6 +66,19 @@ export default function Home() {
         "
       />
 
+      {/* Fundo de quadradinhos */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          opacity-[0.025]
+          [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)]
+          [background-size:60px_60px]
+        "
+        aria-hidden="true"
+      />
+
       {/* =====================================================
           CONTEÚDO
       ====================================================== */}
@@ -350,8 +363,10 @@ export default function Home() {
             "
           >
             Desenvolvimento de{" "}
-            <span className="text-sky-400">soluções digitais</span> para o seu
-            negócio.
+            <span className="text-sky-400">
+              soluções digitais
+            </span>{" "}
+            para o seu negócio.
           </h1>
 
           {/* Descrição */}

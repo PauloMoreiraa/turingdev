@@ -122,9 +122,7 @@ export default function Servicos() {
   /*
    * INÍCIO DO ARRASTO
    */
-  const handlePointerDown = (
-    event: React.PointerEvent<HTMLDivElement>
-  ) => {
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     dragStartX.current = event.clientX;
     dragDistance.current = 0;
 
@@ -136,33 +134,24 @@ export default function Servicos() {
   /*
    * MOVIMENTO DO ARRASTO
    */
-  const handlePointerMove = (
-    event: React.PointerEvent<HTMLDivElement>
-  ) => {
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging) return;
 
-    dragDistance.current =
-      event.clientX - dragStartX.current;
+    dragDistance.current = event.clientX - dragStartX.current;
   };
 
   /*
    * FINALIZA O ARRASTO
    */
-  const handlePointerUp = (
-    event: React.PointerEvent<HTMLDivElement>
-  ) => {
+  const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging) return;
 
     const distance = dragDistance.current;
 
     setIsDragging(false);
 
-    if (
-      wheelRef.current?.hasPointerCapture(event.pointerId)
-    ) {
-      wheelRef.current.releasePointerCapture(
-        event.pointerId
-      );
+    if (wheelRef.current?.hasPointerCapture(event.pointerId)) {
+      wheelRef.current.releasePointerCapture(event.pointerId);
     }
 
     /*
@@ -183,18 +172,12 @@ export default function Servicos() {
   /*
    * CANCELAMENTO DO ARRASTO
    */
-  const handlePointerCancel = (
-    event: React.PointerEvent<HTMLDivElement>
-  ) => {
+  const handlePointerCancel = (event: React.PointerEvent<HTMLDivElement>) => {
     setIsDragging(false);
     dragDistance.current = 0;
 
-    if (
-      wheelRef.current?.hasPointerCapture(event.pointerId)
-    ) {
-      wheelRef.current.releasePointerCapture(
-        event.pointerId
-      );
+    if (wheelRef.current?.hasPointerCapture(event.pointerId)) {
+      wheelRef.current.releasePointerCapture(event.pointerId);
     }
   };
 
@@ -221,10 +204,7 @@ export default function Servicos() {
       className="servicos"
       aria-labelledby="servicos-titulo"
     >
-      <div
-        className="servicos-background"
-        aria-hidden="true"
-      >
+      <div className="servicos-background" aria-hidden="true">
         <div className="servicos-glow servicos-glow-left" />
         <div className="servicos-glow servicos-glow-right" />
         <div className="servicos-grid" />
@@ -232,25 +212,66 @@ export default function Servicos() {
 
       <div className="servicos-container">
         <header className="servicos-header">
-          <span className="servicos-badge">
-            <span aria-hidden="true" />
-            Nossos serviços
+          <span
+            className="
+                  mb-3
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-cyan-400/20
+                  bg-cyan-400/[0.04]
+                  px-3
+                  py-1.5
+                  text-[10px]
+                  font-medium
+                  uppercase
+                  tracking-[0.2em]
+                  text-cyan-400
+                  sm:text-xs
+                "
+          >
+            <span
+              aria-hidden="true"
+              className="
+                    h-1.5
+                    w-1.5
+                    shrink-0
+                    rounded-full
+                    bg-cyan-400
+                  "
+            />
+            Nossos Serviços
           </span>
 
-          <h2 id="servicos-titulo">
-            Soluções digitais para o seu negócio
+          <h2
+            id="servicos-titulo"
+            className="
+              text-[clamp(30px,4.5vw,52px)]
+              font-bold
+              leading-[1.1]
+              tracking-[-0.045em]
+            "
+          >
+            Soluções <span className="text-cyan-400"> digitais</span> para o seu
+            <span className="text-cyan-400"> negócio</span>
           </h2>
 
-          <p>
-            Desenvolvimento de sites, sistemas, interfaces e
-            soluções digitais para empresas e profissionais.
+          <p
+            className="
+              text-[14px]
+              leading-[1.65]
+              max-[700px]:text-[13px]
+            "
+          >
+            Desenvolvimento de sites, sistemas, interfaces e soluções digitais
+            para empresas e profissionais.
           </p>
         </header>
 
         <div
-          className={`servicos-wheel-area ${
-            isDragging ? "dragging" : ""
-          }`}
+          className={`servicos-wheel-area ${isDragging ? "dragging" : ""}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => {
             setIsHovered(false);
@@ -263,10 +284,7 @@ export default function Servicos() {
             onClick={previous}
             aria-label="Ver serviço anterior"
           >
-            <ArrowLeft
-              size={20}
-              aria-hidden="true"
-            />
+            <ArrowLeft size={20} aria-hidden="true" />
           </button>
 
           <div
@@ -284,9 +302,7 @@ export default function Servicos() {
               return (
                 <div
                   key={servico.id}
-                  className={`servicos-card ${
-                    position === 0 ? "active" : ""
-                  }`}
+                  className={`servicos-card ${position === 0 ? "active" : ""}`}
                   style={
                     {
                       "--position": position,
@@ -297,27 +313,56 @@ export default function Servicos() {
                   <div className="servicos-card-glow" />
 
                   <div className="servicos-card-top">
-                    <span className="servicos-number">
+                    <span
+                      className="
+                        servicos-number
+                        text-[12px]
+                        font-bold
+                        tracking-[0.2em]
+                      "
+                    >
                       {servico.id}
                     </span>
 
                     <div className="servicos-icon">
-                      <Icon
-                        size={23}
-                        strokeWidth={1.7}
-                        aria-hidden="true"
-                      />
+                      <Icon size={23} strokeWidth={1.7} aria-hidden="true" />
                     </div>
                   </div>
 
                   <div className="servicos-card-content">
-                    <span className="servicos-category">
+                    <span
+                      className="
+                        servicos-category
+                        text-[9px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.12em]
+                      "
+                    >
                       {servico.categoria}
                     </span>
 
-                    <h3>{servico.titulo}</h3>
+                    <h3
+                      className="
+                        text-[25px]
+                        font-semibold
+                        leading-[1.2]
+                        tracking-[-0.025em]
+                        max-[480px]:text-[22px]
+                      "
+                    >
+                      {servico.titulo}
+                    </h3>
 
-                    <p>{servico.descricao}</p>
+                    <p
+                      className="
+                        text-[14px]
+                        leading-[1.7]
+                        max-[480px]:text-[13px]
+                      "
+                    >
+                      {servico.descricao}
+                    </p>
                   </div>
                 </div>
               );
@@ -330,10 +375,7 @@ export default function Servicos() {
             onClick={next}
             aria-label="Ver próximo serviço"
           >
-            <ArrowRight
-              size={20}
-              aria-hidden="true"
-            />
+            <ArrowRight size={20} aria-hidden="true" />
           </button>
         </div>
 
@@ -347,40 +389,38 @@ export default function Servicos() {
                 key={servico.id}
                 type="button"
                 className={
-                  index === active
-                    ? "servicos-dot active"
-                    : "servicos-dot"
+                  index === active ? "servicos-dot active" : "servicos-dot"
                 }
                 onClick={() => setActive(index)}
                 aria-label={`Ver serviço: ${servico.titulo}`}
-                aria-current={
-                  index === active
-                    ? "true"
-                    : undefined
-                }
+                aria-current={index === active ? "true" : undefined}
               />
             ))}
           </div>
 
           <div
-            className="servicos-counter"
-            aria-label={`Serviço ${
-              active + 1
-            } de ${total}`}
+            className="
+              servicos-counter
+              text-[11px]
+              font-semibold
+              tracking-[0.08em]
+            "
+            aria-label={`Serviço ${active + 1} de ${total}`}
           >
-            <strong>
+            <strong
+              className="
+                text-[inherit]
+              "
+            >
               {String(active + 1).padStart(2, "0")}
             </strong>
 
             <span>/</span>
 
-            <span>
-              {String(total).padStart(2, "0")}
-            </span>
+            <span>{String(total).padStart(2, "0")}</span>
           </div>
         </nav>
       </div>
     </section>
   );
 }
-

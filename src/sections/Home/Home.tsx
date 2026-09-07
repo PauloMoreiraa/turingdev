@@ -1,4 +1,4 @@
-import { CircleStar } from "lucide-react";
+import { ArrowUpRight, CircleStar } from "lucide-react";
 
 export default function Home() {
   return (
@@ -421,18 +421,16 @@ export default function Home() {
             >
               Fazer orçamento
 
-              <span
+              <ArrowUpRight
+                size={17}
+                strokeWidth={2.2}
                 className="
-                  text-base
                   transition-transform
                   duration-200
                   group-hover:-translate-y-0.5
                   group-hover:translate-x-0.5
-                  sm:text-lg
                 "
-              >
-                ↗
-              </span>
+              />
             </a>
 
             {/* Projetos */}

@@ -239,8 +239,11 @@
       rgba(255, 255, 255, 0.02)
     );
 
-  backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+
+  /* Adicione isso para forçar o navegador a criar uma camada de composição estável */
+  will-change: transform;
 
   transform:
     translate(-50%, -50%)
@@ -263,9 +266,6 @@
     20 - abs(var(--position))
   );
 
-  /*
-   * Nenhum blur aplicado no próprio card.
-   */
   filter: none;
 
   pointer-events: none;
@@ -284,15 +284,17 @@
 .servicos-card.active {
   border-color: rgba(56, 189, 248, 0.32);
 
-  background-color:
+  /* CORRIGIDO: alterado de background-color para background */
+  background:
     linear-gradient(
       145deg,
       rgba(56, 189, 248, 0.09),
       rgba(255, 255, 255, 0.035)
     );
-  backdrop-filter: blur(30px) !important;
 
+  /* CORRIGIDO: Espaçamento adequado do !important e sintaxe */
   -webkit-backdrop-filter: blur(30px) !important;
+  backdrop-filter: blur(30px) !important;
 
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.45),

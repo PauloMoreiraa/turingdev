@@ -264,8 +264,7 @@
   );
 
   /*
-   * IMPORTANTE:
-   * nenhum blur é aplicado nos cards.
+   * Nenhum blur aplicado no próprio card.
    */
   filter: none;
 
@@ -291,6 +290,13 @@
       rgba(56, 189, 248, 0.09),
       rgba(255, 255, 255, 0.035)
     );
+
+  /*
+   * Blur do conteúdo que está atrás do card.
+   * Mantido separado do filter: none.
+   */
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.45),

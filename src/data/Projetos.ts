@@ -187,23 +187,18 @@ export const projetos: Projeto[] = [
       "Aplicação voltada para visualização, análise e processamento de informações geográficas.\n\nA solução utiliza recursos de geoprocessamento para trabalhar com dados espaciais e permitir uma visualização mais eficiente das informações em mapas.\n\nPor se tratar de uma aplicação corporativa privada, o acesso ao sistema é restrito.",
 
     imagem:
-      "https://images.unsplash.com/photo-1524666041070-9c876415d6a4?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
     tecnologias: [
       "ArcGIS",
-      "PostGIS",
       "JavaScript",
     ],
 
     tamanho: "grande",
 
-    aplicacao: true,
+    link: "https://analise-de-area.vercel.app/",
 
-    fotos: [
-      // Adicione aqui as fotos do sistema
-      // "https://....",
-      // "https://....",
-    ],
+    aplicacao: true,
   },
 
   {

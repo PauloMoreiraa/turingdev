@@ -284,7 +284,7 @@
 .servicos-card.active {
   border-color: rgba(56, 189, 248, 0.32);
 
-  background:
+  background-color:
     linear-gradient(
       145deg,
       rgba(56, 189, 248, 0.09),

@@ -1,0 +1,747 @@
+.servicos {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  padding: 100px 0;
+
+  background: #030712;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.servicos-background {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.servicos-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(140px);
+}
+
+.servicos-glow-left {
+  width: 450px;
+  height: 450px;
+
+  top: 25%;
+  left: -220px;
+
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.servicos-glow-right {
+  width: 500px;
+  height: 500px;
+
+  right: -250px;
+  bottom: 0;
+
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.servicos-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.035;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.servicos-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.servicos-header {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto 55px;
+
+  padding: 0 20px;
+
+  text-align: center;
+}
+
+.servicos-badge {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 16px;
+
+  padding: 7px 14px;
+
+  border: 1px solid rgba(56, 189, 248, 0.2);
+
+  border-radius: 999px;
+
+  background: rgba(56, 189, 248, 0.06);
+
+  color: #38bdf8;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.servicos-badge span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #38bdf8;
+
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.9);
+}
+
+.servicos-header h2 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(30px, 4.5vw, 52px);
+
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.045em;
+}
+
+.servicos-header p {
+  max-width: 570px;
+
+  margin: 16px auto 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+/* =========================
+   ÁREA DA ROLETA
+========================= */
+
+.servicos-wheel-area {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 460px;
+
+  perspective: 1400px;
+}
+
+/* =========================
+   WHEEL
+========================= */
+
+.servicos-wheel {
+  position: relative;
+
+  width: 100%;
+  height: 430px;
+
+  transform-style: preserve-3d;
+
+  /*
+   * Permite arrastar no desktop
+   * e fazer swipe no celular.
+   */
+  touch-action: pan-y;
+
+  cursor: grab;
+
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.servicos-wheel:active,
+.servicos-wheel-area.dragging .servicos-wheel {
+  cursor: grabbing;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.servicos-card {
+  --card-width: 360px;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: var(--card-width);
+  min-height: 390px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  transform:
+    translate(-50%, -50%)
+    translateX(calc(var(--position) * 390px))
+    translateZ(calc(
+      (1 - min(abs(var(--position)), 3)) * 70px
+    ))
+    rotateY(calc(var(--position) * -18deg))
+    scale(
+      calc(
+        1 - min(abs(var(--position)), 3) * 0.12
+      )
+    );
+
+  opacity: calc(
+    1 - min(abs(var(--position)), 3) * 0.2
+  );
+
+  z-index: calc(
+    20 - abs(var(--position))
+  );
+
+  /*
+   * IMPORTANTE:
+   * nenhum blur é aplicado nos cards.
+   */
+  filter: none;
+
+  pointer-events: none;
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 700ms ease,
+    border-color 500ms ease,
+    box-shadow 500ms ease;
+}
+
+/* =========================
+   CARD CENTRAL
+========================= */
+
+.servicos-card.active {
+  border-color: rgba(56, 189, 248, 0.32);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(56, 189, 248, 0.09),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.45),
+    0 0 80px rgba(56, 189, 248, 0.08);
+
+  pointer-events: auto;
+}
+
+/* =========================
+   CARD GLOW
+========================= */
+
+.servicos-card-glow {
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(56, 189, 248, 0.12);
+
+  filter: blur(65px);
+
+  pointer-events: none;
+
+  transition:
+    background 500ms ease;
+}
+
+.servicos-card.active .servicos-card-glow {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+/* =========================
+   CARD TOP
+========================= */
+
+.servicos-card-top {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.servicos-number {
+  color: #475569;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+.servicos-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(56, 189, 248, 0.2);
+
+  border-radius: 14px;
+
+  background: rgba(56, 189, 248, 0.07);
+
+  color: #38bdf8;
+
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.servicos-card.active .servicos-icon {
+  border-color: rgba(56, 189, 248, 0.4);
+
+  background: rgba(56, 189, 248, 0.12);
+
+  box-shadow:
+    0 0 30px rgba(56, 189, 248, 0.1);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.servicos-card-content {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top: 25px;
+}
+
+.servicos-category {
+  align-self: flex-start;
+
+  margin-bottom: 14px;
+
+  padding: 5px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.servicos-card h3 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+.servicos-card p {
+  margin: 14px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   CONTROLES
+========================= */
+
+.servicos-control {
+  position: absolute;
+
+  top: 50%;
+
+  z-index: 50;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+
+  background: rgba(3, 7, 18, 0.8);
+
+  color: #38bdf8;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease;
+}
+
+.servicos-control:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.servicos-control-left {
+  left: 25px;
+}
+
+.servicos-control-right {
+  right: 25px;
+}
+
+.servicos-control-left:hover {
+  transform: translate(-3px, -50%);
+}
+
+.servicos-control-right:hover {
+  transform: translate(3px, -50%);
+}
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+.servicos-navigation {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  margin-top: 25px;
+}
+
+.servicos-dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.servicos-dot {
+  width: 6px;
+  height: 6px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #334155;
+
+  cursor: pointer;
+
+  transition:
+    width 300ms ease,
+    background 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.servicos-dot.active {
+  width: 24px;
+
+  border-radius: 999px;
+
+  background: #38bdf8;
+
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+.servicos-counter {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #475569;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.servicos-counter strong {
+  color: #38bdf8;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .servicos-card {
+    --card-width: 330px;
+
+    transform:
+      translate(-50%, -50%)
+      translateX(calc(var(--position) * 340px))
+      translateZ(0)
+      rotateY(calc(var(--position) * -15deg))
+      scale(
+        calc(
+          1 - min(abs(var(--position)), 3) * 0.13
+        )
+      );
+  }
+
+  .servicos-control-left {
+    left: 15px;
+  }
+
+  .servicos-control-right {
+    right: 15px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .servicos {
+    padding: 75px 0;
+  }
+
+  .servicos-header {
+    margin-bottom: 30px;
+  }
+
+  .servicos-header h2 {
+    font-size: 31px;
+  }
+
+  .servicos-header p {
+    font-size: 13px;
+  }
+
+  .servicos-wheel-area {
+    min-height: 420px;
+  }
+
+  .servicos-wheel {
+    height: 400px;
+  }
+
+  .servicos-card {
+    --card-width: min(82vw, 340px);
+
+    min-height: 365px;
+
+    padding: 25px;
+
+    transform:
+      translate(-50%, -50%)
+      translateX(calc(var(--position) * 250px))
+      rotateY(calc(var(--position) * -10deg))
+      scale(
+        calc(
+          1 - min(abs(var(--position)), 3) * 0.15
+        )
+      );
+  }
+
+  .servicos-control {
+    width: 42px;
+    height: 42px;
+  }
+
+  .servicos-control-left {
+    left: 8px;
+  }
+
+  .servicos-control-right {
+    right: 8px;
+  }
+
+  .servicos-navigation {
+    margin-top: 20px;
+  }
+}
+
+/* =========================
+   MOBILE PEQUENO
+========================= */
+
+@media (max-width: 480px) {
+  .servicos {
+    padding: 65px 0;
+  }
+
+  .servicos-header {
+    padding: 0 18px;
+  }
+
+  .servicos-header h2 {
+    font-size: 28px;
+  }
+
+  .servicos-header p {
+    font-size: 13px;
+  }
+
+  .servicos-wheel-area {
+    min-height: 390px;
+  }
+
+  .servicos-wheel {
+    height: 375px;
+  }
+
+  .servicos-card {
+    --card-width: 82vw;
+
+    min-height: 350px;
+
+    padding: 23px;
+
+    transform:
+      translate(-50%, -50%)
+      translateX(calc(var(--position) * 220px))
+      rotateY(calc(var(--position) * -8deg))
+      scale(
+        calc(
+          1 - min(abs(var(--position)), 3) * 0.17
+        )
+      );
+  }
+
+  .servicos-card h3 {
+    font-size: 22px;
+  }
+
+  .servicos-card p {
+    font-size: 13px;
+  }
+
+  .servicos-control {
+    width: 38px;
+    height: 38px;
+  }
+
+  .servicos-control-left {
+    left: 5px;
+  }
+
+  .servicos-control-right {
+    right: 5px;
+  }
+}

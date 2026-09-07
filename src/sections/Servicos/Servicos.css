@@ -290,9 +290,9 @@
       rgba(56, 189, 248, 0.09),
       rgba(255, 255, 255, 0.035)
     );
-  backdrop-filter: blur(30px)!important;
+  backdrop-filter: blur(30px) !important;
 
-  -webkit-backdrop-filter: blur(30px)!important;
+  -webkit-backdrop-filter: blur(30px) !important;
 
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.45),

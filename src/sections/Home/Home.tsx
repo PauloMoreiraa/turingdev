@@ -1,4 +1,4 @@
-import "./Home.css";
+import { CircleStar } from "lucide-react";
 
 export default function Home() {
   return (
@@ -10,184 +10,402 @@ export default function Home() {
         h-screen
         min-h-0
         w-full
-        items-center
         overflow-hidden
         bg-[#030712]
-        px-5
-        pt-16
+        px-4
+        pt-20
+        pb-4
         sm:px-8
-        sm:pt-20
+        sm:pt-24
+        sm:pb-6
         lg:px-16
+        lg:pt-28
+        lg:pb-10
       "
     >
-      {/* ILUMINAÇÃO ESQUERDA */}
+      {/* Brilho esquerdo */}
       <div
         className="
           pointer-events-none
           absolute
           -left-32
           top-1/2
-          h-[350px]
-          w-[350px]
+          h-[240px]
+          w-[240px]
           -translate-y-1/2
           rounded-full
           bg-blue-900/20
-          blur-[120px]
-          sm:h-[420px]
-          sm:w-[420px]
-          sm:blur-[130px]
-          home-float-slow
+          blur-[90px]
+          sm:h-[380px]
+          sm:w-[380px]
+          sm:blur-[120px]
+          lg:h-[420px]
+          lg:w-[420px]
+          lg:blur-[130px]
         "
       />
 
-      {/* ILUMINAÇÃO DIREITA */}
+      {/* Brilho direito */}
       <div
         className="
           pointer-events-none
           absolute
           -right-32
           top-1/4
-          h-[300px]
-          w-[300px]
+          h-[220px]
+          w-[220px]
           rounded-full
           bg-sky-500/10
-          blur-[100px]
-          sm:h-[380px]
-          sm:w-[380px]
-          sm:blur-[120px]
-          home-float-reverse
+          blur-[80px]
+          sm:h-[340px]
+          sm:w-[340px]
+          sm:blur-[110px]
+          lg:h-[380px]
+          lg:w-[380px]
+          lg:blur-[120px]
         "
       />
 
-      {/* CONTEÚDO */}
+      {/* =====================================================
+          CONTEÚDO
+      ====================================================== */}
       <div
         className="
           relative
           z-10
           mx-auto
-          grid
+          flex
           h-full
           w-full
           max-w-7xl
-          items-center
-          gap-2
+          flex-col
+          justify-around
+          lg:grid
           lg:grid-cols-2
-          lg:gap-16
+          lg:items-center
+          lg:justify-normal
+          lg:gap-12
+          xl:gap-20
         "
       >
-        {/* TEXTO */}
+        {/* =====================================================
+            FOTO + INFORMAÇÕES
+        ====================================================== */}
+        <div
+          className="
+            order-1
+            flex
+            w-full
+            flex-col
+            items-center
+            lg:order-2
+          "
+        >
+          {/* FOTO */}
+          <div
+            className="
+              relative
+              flex
+              h-[200px]
+              w-full
+              max-w-[285px]
+              items-end
+              justify-center
+              sm:h-[300px]
+              sm:max-w-[400px]
+              lg:h-[470px]
+              lg:max-w-[500px]
+              xl:h-[530px]
+              xl:max-w-[550px]
+            "
+          >
+            {/* Base */}
+            <div
+              className="
+                absolute
+                bottom-0
+                left-1/2
+                h-[140px]
+                w-[195px]
+                -translate-x-1/2
+                rounded-3xl
+                border
+                border-sky-400/10
+                bg-sky-400/[0.025]
+                shadow-[0_25px_70px_rgba(0,0,0,0.45)]
+                sm:h-[215px]
+                sm:w-[310px]
+                lg:h-[335px]
+                lg:w-[430px]
+                xl:h-[380px]
+                xl:w-[480px]
+              "
+            />
+
+            {/* Glow */}
+            <div
+              className="
+                pointer-events-none
+                absolute
+                bottom-[12%]
+                left-1/2
+                h-[160px]
+                w-[160px]
+                -translate-x-1/2
+                rounded-full
+                bg-sky-500/10
+                blur-[60px]
+                sm:h-[250px]
+                sm:w-[250px]
+                sm:blur-[80px]
+                lg:h-[350px]
+                lg:w-[350px]
+                lg:blur-[100px]
+              "
+            />
+
+            {/* Foto */}
+            <img
+              src="/images/foto.png"
+              alt="Profissional da TuringDev"
+              className="
+                relative
+                z-10
+                block
+                h-auto
+                w-[190px]
+                max-w-none
+                object-contain
+                drop-shadow-[0_25px_45px_rgba(0,0,0,0.65)]
+                sm:w-[295px]
+                lg:w-[425px]
+                xl:w-[475px]
+              "
+            />
+          </div>
+
+          {/* =================================================
+              INFORMAÇÕES
+          ================================================== */}
+          <div
+            className="
+              mt-2
+              flex
+              w-full
+              items-center
+              justify-center
+              gap-6
+              sm:mt-3
+              sm:gap-9
+              lg:mt-4
+              lg:gap-10
+            "
+          >
+            {/* Projetos */}
+            <div className="flex flex-col items-center text-center">
+              <div
+                className="
+                  text-xl
+                  font-bold
+                  tracking-tight
+                  text-white
+                  sm:text-3xl
+                  lg:text-4xl
+                "
+              >
+                +20
+              </div>
+
+              <div
+                className="
+                  mt-1
+                  whitespace-nowrap
+                  text-[7px]
+                  font-medium
+                  uppercase
+                  tracking-wider
+                  text-slate-500
+                  sm:text-[10px]
+                  lg:text-xs
+                "
+              >
+                projetos criados
+              </div>
+            </div>
+
+            {/* Divisor */}
+            <div
+              className="
+                h-8
+                w-px
+                shrink-0
+                bg-gradient-to-b
+                from-transparent
+                via-white/15
+                to-transparent
+                sm:h-10
+                lg:h-12
+              "
+            />
+
+            {/* Possibilidades */}
+            <div className="flex flex-col items-center text-center">
+              <div
+                className="
+                  text-xl
+                  font-bold
+                  tracking-tight
+                  text-sky-400
+                  sm:text-3xl
+                  lg:text-4xl
+                "
+              >
+                ∞
+              </div>
+
+              <div
+                className="
+                  mt-1
+                  whitespace-nowrap
+                  text-[7px]
+                  font-medium
+                  uppercase
+                  tracking-wider
+                  text-slate-500
+                  sm:text-[10px]
+                  lg:text-xs
+                "
+              >
+                possibilidades
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =====================================================
+            TEXTO
+        ====================================================== */}
         <div
           className="
             order-2
             flex
+            w-full
             flex-col
             items-center
-            justify-center
             text-center
             lg:order-1
             lg:items-start
             lg:text-left
           "
         >
-          {/* ETIQUETA */}
+          {/* Etiqueta */}
           <div
             className="
-              mb-3
+              mb-2
               inline-flex
               items-center
-              gap-2
+              gap-1.5
               rounded-full
               border
               border-sky-400/20
               bg-sky-400/[0.06]
               px-3
               py-1.5
-              text-[11px]
+              text-[8px]
               font-medium
               text-sky-400
               sm:mb-4
+              sm:gap-2
               sm:px-4
               sm:py-2
-              sm:text-sm
+              sm:text-xs
+              lg:text-sm
             "
           >
-            <span
-              className="
-                h-1.5
-                w-1.5
-                rounded-full
-                bg-sky-400
-                shadow-[0_0_10px_rgba(56,189,248,0.8)]
-              "
+            <CircleStar
+              size={12}
+              strokeWidth={2}
+              className="text-sky-400 sm:h-4 sm:w-4"
             />
 
-            Solução Digital
+            Soluções Digitais Premium
           </div>
 
-          {/* TÍTULO */}
+          {/* Título */}
           <h1
             className="
-              max-w-2xl
-              text-[2rem]
+              w-full
+              max-w-[94vw]
+              text-[clamp(1.5rem,6.8vw,2.05rem)]
               font-bold
-              leading-[1.08]
+              leading-[1.04]
               tracking-tight
               text-white
+              [text-shadow:0_2px_6px_rgba(0,0,0,0.75)]
+              sm:max-w-2xl
               sm:text-5xl
+              sm:leading-[1]
               lg:text-6xl
               xl:text-7xl
             "
           >
-            Transformamos ideias em{" "}
-            <span className="text-sky-400">
-              soluções digitais.
-            </span>
+            Desenvolvimento de{" "}
+            <span className="text-sky-400">soluções digitais</span> para o seu
+            negócio.
           </h1>
 
-          {/* DESCRIÇÃO */}
+          {/* Descrição */}
           <p
             className="
-              mt-3
-              max-w-xl
-              text-xs
-              leading-5
+              mt-2
+              w-full
+              max-w-[94vw]
+              text-[clamp(0.63rem,2.7vw,0.78rem)]
+              leading-[1.45]
               text-slate-400
-              sm:mt-5
+              sm:mt-4
+              sm:max-w-xl
               sm:text-base
               sm:leading-7
               lg:text-lg
             "
           >
-            Criamos sites, sistemas e aplicações modernas
-            para empresas que querem crescer através da
-            tecnologia.
+            Criamos sites profissionais, sistemas web e aplicações
+            personalizadas, com tecnologia moderna, design responsivo e foco em
+            performance para empresas que querem crescer no digital.
           </p>
 
-          {/* BOTÕES */}
+          {/* =================================================
+              BOTÕES
+          ================================================== */}
           <div
             className="
-              mt-5
+              mt-3
               flex
+              w-full
+              max-w-[94vw]
               flex-col
-              items-center
-              gap-2.5
-              sm:mt-7
+              gap-2
+              sm:mt-6
               sm:flex-row
               sm:gap-3
-              lg:justify-start
+              lg:max-w-none
             "
           >
+            {/* Orçamento */}
             <a
               href="#contato"
               className="
                 group
                 flex
+                h-12
+                w-full
                 items-center
+                justify-center
                 gap-2
                 rounded-xl
                 bg-sky-400
                 px-5
-                py-2.5
                 text-xs
                 font-semibold
                 text-slate-950
@@ -195,8 +413,9 @@ export default function Home() {
                 duration-200
                 hover:bg-sky-300
                 hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]
+                sm:h-12
+                sm:w-auto
                 sm:px-6
-                sm:py-3
                 sm:text-sm
               "
             >
@@ -216,15 +435,20 @@ export default function Home() {
               </span>
             </a>
 
+            {/* Projetos */}
             <a
               href="#projetos"
               className="
+                flex
+                h-12
+                w-full
+                items-center
+                justify-center
                 rounded-xl
                 border
                 border-white/10
                 bg-white/[0.03]
                 px-5
-                py-2.5
                 text-xs
                 font-medium
                 text-white
@@ -232,8 +456,9 @@ export default function Home() {
                 duration-200
                 hover:border-white/20
                 hover:bg-white/[0.07]
+                sm:h-12
+                sm:w-auto
                 sm:px-6
-                sm:py-3
                 sm:text-sm
               "
             >
@@ -241,231 +466,9 @@ export default function Home() {
             </a>
           </div>
         </div>
-
-        {/* LADO DIREITO */}
-        <div
-          className="
-            order-1
-            flex
-            flex-col
-            items-center
-            justify-center
-            lg:order-2
-          "
-        >
-          {/* COMPOSIÇÃO DA LOGO */}
-          <div
-            className="
-              relative
-              flex
-              h-[150px]
-              w-[150px]
-              items-center
-              justify-center
-              sm:h-[250px]
-              sm:w-[250px]
-              lg:h-[400px]
-              lg:w-[400px]
-              home-float
-            "
-          >
-            {/* GLOW */}
-            <div
-              className="
-                absolute
-                inset-[20%]
-                rounded-full
-                bg-sky-400/20
-                blur-[50px]
-                sm:blur-[70px]
-                home-glow
-              "
-            />
-
-            {/* LOSANGO EXTERNO */}
-            <div
-              className="
-                absolute
-                inset-[8%]
-                rotate-45
-                rounded-[30px]
-                border
-                border-white/10
-                bg-white/[0.025]
-                shadow-[0_0_50px_rgba(56,189,248,0.1)]
-                backdrop-blur-sm
-                sm:rounded-[45px]
-                sm:shadow-[0_0_70px_rgba(56,189,248,0.1)]
-                home-orbit-reverse
-              "
-            />
-
-            {/* FORMA GLASS */}
-            <div
-              className="
-                absolute
-                inset-[18%]
-                rounded-[22px]
-                border
-                border-white/10
-                bg-gradient-to-br
-                from-white/[0.10]
-                via-white/[0.03]
-                to-sky-400/[0.04]
-                shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_20px_45px_rgba(0,0,0,0.5)]
-                backdrop-blur-md
-                sm:rounded-[28px]
-                sm:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_25px_60px_rgba(0,0,0,0.5)]
-                home-glass-float
-              "
-            />
-
-            {/* LOGO */}
-            <div
-              className="
-                relative
-                z-10
-                flex
-                h-[72px]
-                w-[72px]
-                items-center
-                justify-center
-                rounded-[17px]
-                border
-                border-white/10
-                bg-[#050b16]/90
-                shadow-[0_15px_35px_rgba(0,0,0,0.55)]
-                backdrop-blur-xl
-                sm:h-32
-                sm:w-32
-                sm:rounded-[22px]
-                lg:h-48
-                lg:w-48
-              "
-            >
-              <img
-                src="/images/logo.png"
-                alt="TuringDev"
-                className="
-                  h-[68%]
-                  w-[68%]
-                  object-contain
-                  drop-shadow-[0_0_20px_rgba(56,189,248,0.3)]
-                  sm:drop-shadow-[0_0_25px_rgba(56,189,248,0.3)]
-                "
-              />
-            </div>
-
-            {/* REFLEXO */}
-            <div
-              className="
-                pointer-events-none
-                absolute
-                left-[22%]
-                top-[18%]
-                h-8
-                w-20
-                rotate-[-35deg]
-                rounded-full
-                bg-white/[0.07]
-                blur-lg
-                sm:h-12
-                sm:w-28
-                sm:blur-xl
-              "
-            />
-          </div>
-
-          {/* ESTATÍSTICAS */}
-          <div
-            className="
-              mt-1
-              flex
-              items-center
-              justify-center
-              gap-6
-              sm:mt-2
-              sm:gap-8
-              lg:mt-0
-            "
-          >
-            {/* PROJETOS */}
-            <div className="text-center">
-              <div
-                className="
-                  text-2xl
-                  font-bold
-                  tracking-tight
-                  text-white
-                  sm:text-4xl
-                "
-              >
-                +20
-              </div>
-
-              <div
-                className="
-                  mt-0.5
-                  text-[10px]
-                  font-medium
-                  uppercase
-                  tracking-wider
-                  text-slate-500
-                  sm:mt-1
-                  sm:text-xs
-                "
-              >
-                projetos criados
-              </div>
-            </div>
-
-            {/* DIVISOR */}
-            <div
-              className="
-                h-10
-                w-px
-                bg-gradient-to-b
-                from-transparent
-                via-white/15
-                to-transparent
-                sm:h-12
-              "
-            />
-
-            {/* POSSIBILIDADES */}
-            <div className="text-center">
-              <div
-                className="
-                  text-2xl
-                  font-bold
-                  tracking-tight
-                  text-sky-400
-                  sm:text-4xl
-                "
-              >
-                ∞
-              </div>
-
-              <div
-                className="
-                  mt-0.5
-                  text-[10px]
-                  font-medium
-                  uppercase
-                  tracking-wider
-                  text-slate-500
-                  sm:mt-1
-                  sm:text-xs
-                "
-              >
-                possibilidades
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
-      {/* LINHA INFERIOR */}
+      {/* Linha inferior */}
       <div
         className="
           pointer-events-none

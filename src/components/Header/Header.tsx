@@ -64,31 +64,38 @@ export default function Navbar() {
     setMenuOpen(false);
   };
 
+  const glassActive = scrolled || menuOpen;
+
   return (
     <header
       className={`
-        fixed inset-x-0 top-0 z-50
-        transition-all duration-300
-
-        border-b border-white/10
-        bg-black/50
-        backdrop-blur-xl
-
-        lg:border-transparent
-        lg:bg-transparent
-        lg:backdrop-blur-none
+        fixed
+        inset-x-0
+        top-0
+        z-50
+        border-b
+        transition-all
+        duration-300
 
         ${
-          scrolled
-            ? "lg:border-white/10 lg:bg-black/70 lg:backdrop-blur-xl"
-            : ""
+          glassActive
+            ? `
+              border-white/10
+              bg-black/70
+              backdrop-blur-xl
+            `
+            : `
+              border-transparent
+              bg-transparent
+              backdrop-blur-none
+            `
         }
       `}
     >
       {/* NAVBAR */}
       <nav className="w-full px-5 py-4 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          
+
           {/* LOGO */}
           <a
             href="#inicio"
@@ -98,10 +105,24 @@ export default function Navbar() {
             <img
               src="/images/logo.png"
               alt="TuringDev"
-              className="h-9 w-9 object-contain"
+              className="
+                h-9
+                w-9
+                object-contain
+                lg:h-11
+                lg:w-11
+              "
             />
 
-            <span className="text-xl font-semibold tracking-tight text-white">
+            <span
+              className="
+                text-xl
+                font-semibold
+                tracking-tight
+                text-white
+                lg:text-2xl
+              "
+            >
               Turing<span className="text-sky-400">Dev</span>
             </span>
           </a>
@@ -119,9 +140,12 @@ export default function Navbar() {
                     className={`
                       rounded-lg
                       border
-                      px-3.5 py-2
-                      text-sm font-medium
-                      transition-all duration-200
+                      px-3.5
+                      py-2
+                      text-sm
+                      font-medium
+                      transition-all
+                      duration-200
 
                       ${
                         isActive

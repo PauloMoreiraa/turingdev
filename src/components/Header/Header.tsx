@@ -18,20 +18,8 @@ export default function Navbar() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      /*
-       * Ativa o fundo da navbar depois que
-       * o usuário começa a rolar.
-       */
       setScrolled(scrollY > 20);
 
-      /*
-       * Descobre qual seção está ocupando
-       * a posição atual da tela.
-       *
-       * Usamos o centro da viewport como referência.
-       * Isso evita que duas seções sejam consideradas
-       * ativas ao mesmo tempo.
-       */
       const viewportCenter =
         scrollY + window.innerHeight / 2;
 
@@ -57,11 +45,6 @@ export default function Navbar() {
         }
       }
 
-      /*
-       * Caso o usuário esteja próximo do final
-       * da página, garante que a última seção
-       * seja ativada.
-       */
       const pageBottom =
         scrollY + window.innerHeight;
 
@@ -78,10 +61,6 @@ export default function Navbar() {
       setActiveSection(currentSection);
     };
 
-    /*
-     * Executa imediatamente para definir
-     * a seção correta ao carregar a página.
-     */
     handleScroll();
 
     window.addEventListener(

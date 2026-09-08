@@ -219,7 +219,7 @@ export default function Projetos() {
               h-[400px]
               w-[400px]
               rounded-full
-              bg-cyan-400/[0.04]
+              bg-sky-400/[0.04]
               blur-[120px]
             "
           />
@@ -232,7 +232,7 @@ export default function Projetos() {
               h-[450px]
               w-[450px]
               rounded-full
-              bg-cyan-500/[0.035]
+              bg-sky-500/[0.035]
               blur-[140px]
             "
           />
@@ -281,15 +281,15 @@ export default function Projetos() {
                   gap-2
                   rounded-full
                   border
-                  border-cyan-400/20
-                  bg-cyan-400/[0.04]
+                  border-sky-400/20
+                  bg-sky-400/[0.04]
                   px-3
                   py-1.5
                   text-[10px]
                   font-medium
                   uppercase
                   tracking-[0.2em]
-                  text-cyan-400
+                  text-sky-400
                   sm:text-xs
                 "
               >
@@ -300,7 +300,7 @@ export default function Projetos() {
                     w-1.5
                     shrink-0
                     rounded-full
-                    bg-cyan-400
+                    bg-sky-400
                   "
                 />
 
@@ -318,7 +318,7 @@ export default function Projetos() {
                 "
               >
                 Projetos que transformam
-                <span className="text-cyan-400">
+                <span className="text-sky-400">
                   {" "}
                   ideias
                 </span>{" "}
@@ -395,7 +395,7 @@ export default function Projetos() {
                     backdrop-blur-md
                     transition
                     placeholder:text-white/25
-                    focus:border-cyan-400/30
+                    focus:border-sky-400/30
                     focus:bg-white/[0.05]
                   "
                 />
@@ -426,7 +426,7 @@ export default function Projetos() {
                     text-white/70
                     backdrop-blur-md
                     transition
-                    hover:border-cyan-400/30
+                    hover:border-sky-400/30
                     hover:bg-white/[0.05]
                     sm:w-44
                   "
@@ -496,7 +496,7 @@ export default function Projetos() {
                             ${
                               categoriaSelecionada ===
                               categoria
-                                ? "bg-cyan-400/[0.08] text-cyan-400"
+                                ? "bg-sky-400/[0.08] text-sky-400"
                                 : "text-white/60 hover:bg-white/[0.04] hover:text-white"
                             }
                           `}
@@ -588,7 +588,7 @@ export default function Projetos() {
                         bg-white/[0.03]
                         transition-all
                         duration-300
-                        hover:border-cyan-400/30
+                        hover:border-sky-400/30
                         hover:bg-white/[0.05]
                         ${getCardClasses(
                           projeto.tamanho
@@ -655,7 +655,7 @@ export default function Projetos() {
                               font-medium
                               uppercase
                               tracking-[0.15em]
-                              text-cyan-400
+                              text-sky-400
                             "
                           >
                             {projeto.categoria}
@@ -677,9 +677,9 @@ export default function Projetos() {
                               backdrop-blur-md
                               transition-all
                               duration-300
-                              group-hover:border-cyan-400/30
-                              group-hover:bg-cyan-400/[0.08]
-                              group-hover:text-cyan-400
+                              group-hover:border-sky-400/30
+                              group-hover:bg-sky-400/[0.08]
+                              group-hover:text-sky-400
                             "
                           >
                             <ArrowUpRight
@@ -734,19 +734,19 @@ export default function Projetos() {
                               gap-1.5
                               rounded-lg
                               border
-                              border-cyan-400/30
-                              bg-cyan-400/10
+                              border-sky-400/30
+                              bg-sky-400/10
                               px-3
                               py-2
                               text-[11px]
                               font-semibold
-                              text-cyan-400
+                              text-sky-400
                               backdrop-blur-md
                               transition-all
                               duration-200
-                              hover:border-cyan-400/50
-                              hover:bg-cyan-400/20
-                              hover:text-cyan-300
+                              hover:border-sky-400/50
+                              hover:bg-sky-400/20
+                              hover:text-sky-300
                             "
                           >
                             <span>
@@ -799,9 +799,9 @@ export default function Projetos() {
                     font-medium
                     text-white/70
                     transition
-                    hover:border-cyan-400/30
-                    hover:bg-cyan-400/[0.06]
-                    hover:text-cyan-400
+                    hover:border-sky-400/30
+                    hover:bg-sky-400/[0.06]
+                    hover:text-sky-400
                   "
                 >
                   Ver mais
@@ -829,9 +829,9 @@ export default function Projetos() {
                     font-medium
                     text-white/70
                     transition
-                    hover:border-cyan-400/30
-                    hover:bg-cyan-400/[0.06]
-                    hover:text-cyan-400
+                    hover:border-sky-400/30
+                    hover:bg-sky-400/[0.06]
+                    hover:text-sky-400
                   "
                 >
                   Ver menos
@@ -910,9 +910,9 @@ export default function Projetos() {
                 text-white/60
                 backdrop-blur-md
                 transition
-                hover:border-cyan-400/30
-                hover:bg-cyan-400/[0.08]
-                hover:text-cyan-400
+                hover:border-sky-400/30
+                hover:bg-sky-400/[0.08]
+                hover:text-sky-400
                 sm:right-5
                 sm:top-5
               "
@@ -975,7 +975,7 @@ export default function Projetos() {
                   font-medium
                   uppercase
                   tracking-[0.18em]
-                  text-cyan-400
+                  text-sky-400
                 "
               >
                 {projetoSelecionado.categoria}
@@ -1143,7 +1143,7 @@ export default function Projetos() {
                               text-left
                               transition-all
                               duration-300
-                              hover:border-cyan-400/30
+                              hover:border-sky-400/30
                               hover:bg-white/[0.05]
                             "
                           >
@@ -1303,9 +1303,9 @@ export default function Projetos() {
               text-white/70
               backdrop-blur-md
               transition
-              hover:border-cyan-400/30
-              hover:bg-cyan-400/[0.08]
-              hover:text-cyan-400
+              hover:border-sky-400/30
+              hover:bg-sky-400/[0.08]
+              hover:text-sky-400
               sm:right-6
               sm:top-6
             "

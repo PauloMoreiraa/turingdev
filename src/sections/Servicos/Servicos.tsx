@@ -220,15 +220,15 @@ export default function Servicos() {
                   gap-2
                   rounded-full
                   border
-                  border-cyan-400/20
-                  bg-cyan-400/[0.04]
+                  border-sky-400/20
+                  bg-sky-400/[0.04]
                   px-3
                   py-1.5
                   text-[10px]
                   font-medium
                   uppercase
                   tracking-[0.2em]
-                  text-cyan-400
+                  text-sky-400
                   sm:text-xs
                 "
           >
@@ -239,7 +239,7 @@ export default function Servicos() {
                     w-1.5
                     shrink-0
                     rounded-full
-                    bg-cyan-400
+                    bg-sky-400
                   "
             />
             Nossos Serviços
@@ -254,8 +254,8 @@ export default function Servicos() {
               tracking-[-0.045em]
             "
           >
-            Soluções <span className="text-cyan-400"> digitais</span> para o seu
-            <span className="text-cyan-400"> negócio</span>
+            Soluções <span className="text-sky-400"> digitais</span> para o seu
+            <span className="text-sky-400"> negócio</span>
           </h2>
 
           <p

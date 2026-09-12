@@ -1,4 +1,5 @@
 import { servicos } from "../../data/servicos";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Servicos() {
   return (
@@ -19,10 +20,7 @@ export default function Servicos() {
       "
     >
       {/* Background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           className="
             absolute
@@ -104,7 +102,6 @@ export default function Servicos() {
                   shadow-[0_0_7px_rgba(56,189,248,0.7)]
                 "
               />
-
               Nossos serviços
             </span>
 
@@ -122,9 +119,7 @@ export default function Servicos() {
               "
             >
               Soluções digitais para{" "}
-              <span className="text-sky-400">
-                diferentes desafios.
-              </span>
+              <span className="text-sky-400">diferentes desafios.</span>
             </h2>
           </div>
 
@@ -136,9 +131,9 @@ export default function Servicos() {
               text-slate-500
             "
           >
-            Desenvolvimento de sites, sistemas e experiências
-            digitais pensadas para transformar ideias em soluções
-            funcionais, modernas e eficientes.
+            Desenvolvimento de sites, sistemas e experiências digitais pensadas
+            para transformar ideias em soluções funcionais, modernas e
+            eficientes.
           </p>
         </header>
 
@@ -249,10 +244,7 @@ export default function Servicos() {
                         group-hover:bg-sky-400/[0.07]
                       "
                     >
-                      <Icon
-                        size={18}
-                        strokeWidth={1.7}
-                      />
+                      <Icon size={18} strokeWidth={1.7} />
                     </div>
 
                     <span
@@ -357,8 +349,8 @@ export default function Servicos() {
                 sm:text-sm
               "
             >
-              Vamos conversar sobre como transformar sua ideia
-              em uma solução digital.
+              Vamos conversar sobre como transformar sua ideia em uma solução
+              digital.
             </p>
           </div>
 
@@ -394,6 +386,17 @@ export default function Servicos() {
             "
           >
             Fale conosco
+            <ArrowUpRight
+              aria-hidden="true"
+              size={16}
+              strokeWidth={2}
+              className="
+                transition-transform
+                duration-300
+                group-hover:translate-x-0.5
+                group-hover:-translate-y-0.5
+              "
+            />
           </a>
         </div>
       </div>

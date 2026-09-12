@@ -27,8 +27,22 @@ export const integrantes: Integrante[] = [
       "Arquiteto de Software Sênior com mais de 10 anos de experiência atuando em grandes empresas e projetos de diferentes níveis de complexidade. Experiência na definição de arquiteturas, integração de sistemas e tomada de decisões técnicas, buscando construir soluções estáveis, escaláveis e alinhadas às necessidades do negócio. Atua próximo aos times de desenvolvimento, apoiando decisões técnicas e garantindo boas práticas ao longo de todo o ciclo de desenvolvimento.",
 
     linkedin: "https://www.linkedin.com/in/bjvargas/",
-    github: "https://github.com/PauloMoreiraa",
-    portfolio: "https://paulomoreiraa.github.io/",
+    github: "https://github.com/bjvargas",
+  },
+
+  {
+    id: "guilherme-henrique",
+    nome: "Guilherme Henrique",
+    cargo: "CEO & Diretor Executivo",
+    foto: "/equipe/guilherme.jpeg",
+
+    miniDescricao:
+      "Responsável pela liderança estratégica e pelo direcionamento das operações da empresa.",
+
+    descricao:
+      "Responsável pela liderança estratégica e operacional da empresa, com mais de 5 anos de experiência em posições de liderança e atuação no setor bancário. Atua na definição de objetivos, tomada de decisões e direcionamento das principais iniciativas do negócio, trabalhando em conjunto com as equipes para garantir organização, crescimento e execução dos projetos.",
+
+    linkedin: "https://www.linkedin.com/in/guilhermeh-sa/",
   },
 
   {
@@ -41,7 +55,7 @@ export const integrantes: Integrante[] = [
       "Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
 
     descricao:
-      "Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
+      "Desenvolvedor com mais de 4 anos de experiência na área, atuando no desenvolvimento de sistemas e soluções digitais para diferentes projetos. Já participou de projetos de alcance nacional, incluindo soluções desenvolvidas para o IBAMA. Possui formação técnica em Desenvolvimento de Sistemas e graduação concluída na área de tecnologia, com experiência em diferentes tecnologias e ambientes de desenvolvimento.",
 
     linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
     github: "https://github.com/PauloMoreiraa",
@@ -49,57 +63,20 @@ export const integrantes: Integrante[] = [
   },
 
   {
-    id: "paulo-henrique",
-    nome: "Paulo Moreira",
+    id: "lucas-brandao",
+    nome: "Lucas Brandão",
     cargo: "CEO & Desenvolvedor",
-    foto: "/equipe/paulo.jpeg",
+    foto: "/equipe/lucasb.jpg",
 
     miniDescricao:
-      "Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
+      "Desenvolvedor que une visão de processo e código para resolver problemas reais.",
 
     descricao:
-      "Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
+      "Desenvolvedor Full Stack com vivência em rotinas administrativas e financeiras, o que traz um olhar prático para o que realmente precisa ser resolvido. Trabalha com React, TypeScript, Node.js e Python, criando sistemas de gestão, automações e interfaces que simplificam o dia a dia de quem usa.",
 
-    linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
-    github: "https://github.com/PauloMoreiraa",
-    portfolio: "https://paulomoreiraa.github.io/",
+    linkedin: "https://www.linkedin.com/in/lucasbrandaocabral/",
+    github: "https://github.com/Lucasbrandaocabral",
+    portfolio: "https://lucasbrandao-portfolio.vercel.app/",
   },
 
-  {
-    id: "paulo-henrique",
-    nome: "Paulo Moreira",
-    cargo: "CEO & Desenvolvedor",
-    foto: "/equipe/paulo.jpeg",
-
-    miniDescricao:
-      "Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
-
-    descricao:
-      "Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
-
-    linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
-    github: "https://github.com/PauloMoreiraa",
-    portfolio: "https://paulomoreiraa.github.io/",
-  },
-
-  {
-    id: "novo-integrante",
-    nome: "Nome do Integrante",
-    cargo: "Cargo / Especialidade",
-    foto: "/equipe/lucas.jpg",
-
-    miniDescricao:
-      "Breve descrição que aparecerá no card do integrante.",
-
-    descricao:
-      "Descrição do integrante e sua atuação dentro da TuringDev, destacando sua experiência, especialidade e contribuição para os projetos da empresa.",
-
-    linkedin: "https://www.linkedin.com/",
-    portfolio: "https://seuportfolio.com",
-
-    // Adicione somente as redes que o integrante possuir.
-    // instagram: "https://instagram.com/...",
-    // github: "https://github.com/...",
-    // tiktok: "https://tiktok.com/@...",
-  },
 ];

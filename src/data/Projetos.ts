@@ -33,42 +33,37 @@ export interface Projeto {
 }
 
 export const projetos: Projeto[] = [
+
   {
     id: 1,
-    titulo: "Sinaflor+ IBAMA",
-    categoria: "Sistema Web",
+    titulo: "Portfólio de Psicólogo",
+    categoria: "Website",
 
     miniDescricao:
-      "Sistema corporativo privado para gestão e processamento de dados geoespaciais.",
+      "Portfólio moderno e responsivo focado em apresentação e conversão.",
 
     descricao:
-      "Sistema corporativo privado desenvolvido para gestão e processamento de dados geoespaciais. A plataforma reúne recursos voltados ao gerenciamento de informações, operações e processos que envolvem dados geográficos em larga escala.\n\nPor se tratar de uma solução corporativa privada, o sistema possui acesso restrito e não está disponível publicamente para demonstração.",
+      "Portfólio moderno e responsivo desenvolvido com foco em apresentação de serviços de um psicólogo.\n\nO portfólio prioriza uma experiência visual agradável, navegação intuitiva e uma estrutura voltada para conversão.",
 
     imagem:
-      "https://images.unsplash.com/photo-1655157639280-a8e4594d98ac?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1714976694468-ff722f34d0b6?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
     tecnologias: [
       "React",
-      "Spring Boot",
-      "PostgreSQL",
-      "PostGIS",
+      "Tailwind",
+      "TypeScript",
     ],
 
-    tamanho: "grande",
+    tamanho: "horizontal",
 
+    link: "https://leonardopsicologo.vercel.app/",
     aplicacao: true,
-
-    fotos: [
-      // Adicione aqui as fotos do Sinaflor+
-      // "https://....",
-      // "https://....",
-    ],
   },
 
   {
     id: 2,
     titulo: "Peladô",
-    categoria: "Aplicativo",
+    categoria: "Aplicativo/Web",
 
     miniDescricao:
       "Aplicativo para organizar peladas e gerar times equilibrados automaticamente.",
@@ -94,7 +89,7 @@ export const projetos: Projeto[] = [
 
   {
     id: 3,
-    titulo: "Portal",
+    titulo: "Portal do Usuário",
     categoria: "Dashboard",
 
     miniDescricao:
@@ -108,8 +103,9 @@ export const projetos: Projeto[] = [
 
     tecnologias: [
       "React",
-      "TypeScript",
-      "Charts",
+      "Vite",
+      "Node",
+      "Prisma",
     ],
 
     tamanho: "pequeno",
@@ -120,30 +116,30 @@ export const projetos: Projeto[] = [
       // "https://....",
     ],
   },
-
   {
     id: 4,
-    titulo: "Landing Page",
-    categoria: "Website",
+    titulo: "Aplicação Geoespacial",
+    categoria: "Geoprocessamento",
 
     miniDescricao:
-      "Landing page moderna e responsiva focada em apresentação e conversão.",
+      "Aplicação para visualização, análise e processamento de informações geográficas.",
 
     descricao:
-      "Landing page moderna e responsiva desenvolvida com foco em apresentação de produtos, serviços ou soluções.\n\nO projeto prioriza uma experiência visual agradável, navegação intuitiva e uma estrutura voltada para conversão.",
+      "Aplicação voltada para visualização, análise e processamento de informações geográficas.\n\nA solução utiliza recursos de geoprocessamento para trabalhar com dados espaciais e permitir uma visualização mais eficiente das informações em mapas.\n\nPor se tratar de uma aplicação corporativa privada, o acesso ao sistema é restrito.",
 
     imagem:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
     tecnologias: [
-      "React",
-      "Tailwind",
-      "TypeScript",
+      "ArcGIS",
+      "JavaScript",
     ],
 
     tamanho: "horizontal",
 
-    link: "https://seu-link-aqui.com",
+    link: "https://analise-de-area.vercel.app/",
+
+    aplicacao: true,
   },
 
   {
@@ -177,190 +173,34 @@ export const projetos: Projeto[] = [
 
   {
     id: 6,
-    titulo: "Aplicação Geoespacial",
-    categoria: "Geoprocessamento",
+    titulo: "Sinaflor+ IBAMA",
+    categoria: "Sistema Web",
 
     miniDescricao:
-      "Aplicação para visualização, análise e processamento de informações geográficas.",
+      "Sistema corporativo privado para gestão e processamento de dados geoespaciais.",
 
     descricao:
-      "Aplicação voltada para visualização, análise e processamento de informações geográficas.\n\nA solução utiliza recursos de geoprocessamento para trabalhar com dados espaciais e permitir uma visualização mais eficiente das informações em mapas.\n\nPor se tratar de uma aplicação corporativa privada, o acesso ao sistema é restrito.",
+      "Sistema corporativo privado desenvolvido para gestão e processamento de dados geoespaciais. A plataforma reúne recursos voltados ao gerenciamento de informações, operações e processos que envolvem dados geográficos em larga escala.\n\nPor se tratar de uma solução corporativa privada, o sistema possui acesso restrito e não está disponível publicamente para demonstração.",
 
     imagem:
-      "https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1655157639280-a8e4594d98ac?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
     tecnologias: [
-      "ArcGIS",
-      "JavaScript",
+      "React",
+      "Spring Boot",
+      "PostgreSQL",
+      "PostGIS",
     ],
 
     tamanho: "grande",
 
-    link: "https://analise-de-area.vercel.app/",
-
-    aplicacao: true,
-  },
-
-  {
-    id: 7,
-    titulo: "Portfólio Profissional",
-    categoria: "Portfólio",
-
-    miniDescricao:
-      "Portfólio profissional com foco em experiência visual e apresentação de projetos.",
-
-    descricao:
-      "Portfólio profissional desenvolvido com foco em apresentação visual, organização de trabalhos e experiência de navegação.\n\nA estrutura foi pensada para destacar projetos, informações profissionais e trabalhos realizados.",
-
-    imagem:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1000&q=80",
-
-    tecnologias: [
-      "React",
-      "CSS",
-      "TypeScript",
-    ],
-
-    tamanho: "pequeno",
-
-    link: "https://seu-link-aqui.com",
-  },
-
-  {
-    id: 8,
-    titulo: "E-commerce",
-    categoria: "E-commerce",
-
-    miniDescricao:
-      "Plataforma de comércio eletrônico com catálogo, produtos e experiência de compra.",
-
-    descricao:
-      "Plataforma de comércio eletrônico desenvolvida para apresentar produtos e proporcionar uma experiência de compra simples e intuitiva.\n\nA estrutura contempla catálogo de produtos, organização das informações e uma interface pensada para facilitar a navegação do usuário.",
-
-    imagem:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80",
-
-    tecnologias: [
-      "React",
-      "Node.js",
-      "MongoDB",
-    ],
-
-    tamanho: "horizontal",
-
-    aplicacao: true,
-  },
-
-  {
-    id: 9,
-    titulo: "Sistema de Gestão",
-    categoria: "Sistema Web",
-
-    miniDescricao:
-      "Sistema para gerenciamento de operações, usuários e informações.",
-
-    descricao:
-      "Sistema desenvolvido para centralizar operações, usuários e informações em uma única plataforma.\n\nA aplicação foi estruturada para facilitar o gerenciamento das atividades e proporcionar maior organização aos processos internos.",
-
-    imagem:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80",
-
-    tecnologias: [
-      "Angular",
-      "Spring",
-      "PostgreSQL",
-    ],
-
-    tamanho: "vertical",
-
-    fotos: [
-      // Adicione aqui as fotos do sistema
-      // "https://....",
-      // "https://....",
-    ],
-  },
-
-  {
-    id: 10,
-    titulo: "Aplicação Mobile",
-    categoria: "Aplicativo",
-
-    miniDescricao:
-      "Aplicativo mobile desenvolvido para oferecer uma experiência rápida e intuitiva.",
-
-    descricao:
-      "Aplicativo mobile desenvolvido com foco em praticidade, velocidade e facilidade de utilização.\n\nA interface foi planejada para oferecer uma experiência intuitiva em dispositivos móveis, mantendo uma navegação simples e objetiva.",
-
-    imagem:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=80",
-
-    tecnologias: [
-      "React Native",
-      "TypeScript",
-    ],
-
-    tamanho: "pequeno",
-
     aplicacao: true,
 
     fotos: [
-      // Adicione aqui as fotos do aplicativo
+      // Adicione aqui as fotos do Sinaflor+
       // "https://....",
       // "https://....",
     ],
   },
 
-  {
-    id: 11,
-    titulo: "Website Institucional",
-    categoria: "Website",
-
-    miniDescricao:
-      "Website institucional moderno para fortalecer a presença digital de uma empresa.",
-
-    descricao:
-      "Website institucional desenvolvido para fortalecer a presença digital de uma empresa e apresentar seus serviços, informações e diferenciais de forma profissional.\n\nA estrutura foi planejada para oferecer uma navegação clara e uma apresentação visual moderna.",
-
-    imagem:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80",
-
-    tecnologias: [
-      "React",
-      "Tailwind",
-      "Vite",
-    ],
-
-    tamanho: "horizontal",
-
-    link: "https://seu-link-aqui.com",
-  },
-
-  {
-    id: 12,
-    titulo: "Painel Administrativo",
-    categoria: "Dashboard",
-
-    miniDescricao:
-      "Painel administrativo para controle de dados, usuários e operações.",
-
-    descricao:
-      "Painel administrativo desenvolvido para centralizar o controle de dados, usuários e operações.\n\nA solução proporciona uma visão organizada das informações e facilita o acompanhamento das atividades realizadas dentro da plataforma.",
-
-    imagem:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80",
-
-    tecnologias: [
-      "Vue",
-      "Node.js",
-      "PostgreSQL",
-    ],
-
-    tamanho: "pequeno",
-
-    fotos: [
-      // Adicione aqui as fotos do painel
-      // "https://....",
-      // "https://....",
-    ],
-  },
 ];

@@ -1,7 +1,8 @@
 import {
   ArrowUpRight,
+  Code2,
   ExternalLink,
-  UserRound,
+  Settings,
   X,
 } from "lucide-react";
 import {
@@ -210,13 +211,12 @@ export default function Sobre() {
                   sm:text-[15px]
                 "
               >
-                Nossa equipe combina diferentes perspectivas,
-                experiências de mercado e especialidades para
-                desenvolver projetos com qualidade, estratégia e
-                propósito. Mais do que criar produtos digitais,
-                buscamos entender cada desafio e transformar
-                conhecimento em soluções eficientes, modernas e
-                capazes de gerar valor para nossos clientes.
+                Nossa equipe reúne mais de 20 colaboradores,
+                com diferentes conhecimentos e especialidades.
+                Essa diversidade nos permite unir diferentes
+                perspectivas para criar soluções digitais
+                completas, modernas e alinhadas às necessidades
+                de cada cliente.
               </p>
 
               {/* Indicadores */}
@@ -229,67 +229,52 @@ export default function Sobre() {
                   sm:grid-cols-3
                 "
               >
+                {/* Personalizado */}
                 <div
                   className="
+                    group
                     rounded-2xl
                     border
                     border-white/[0.07]
                     bg-white/[0.025]
                     p-4
+                    transition-all
+                    duration-300
+                    hover:border-sky-400/20
+                    hover:bg-sky-400/[0.025]
                   "
                 >
-                  <strong
-                    className="
-                      block
-                      text-2xl
-                      font-bold
-                      text-white
-                    "
-                  >
-                    {String(integrantes.length).padStart(2, "0")}
-                  </strong>
+                  <div className="flex items-center justify-between">
+                    <strong
+                      className="
+                        text-2xl
+                        font-bold
+                        tracking-tight
+                        text-sky-400
+                      "
+                    >
+                      100%
+                    </strong>
+
+                    <Settings
+                      aria-hidden="true"
+                      size={17}
+                      strokeWidth={1.7}
+                      className="
+                        text-sky-400/60
+                        transition-colors
+                        duration-300
+                        group-hover:text-sky-400
+                      "
+                    />
+                  </div>
 
                   <span
                     className="
                       mt-1
                       block
                       text-[10px]
-                      font-medium
-                      uppercase
-                      tracking-[0.12em]
-                      text-slate-500
-                    "
-                  >
-                    Integrantes
-                  </span>
-                </div>
-
-                <div
-                  className="
-                    rounded-2xl
-                    border
-                    border-white/[0.07]
-                    bg-white/[0.025]
-                    p-4
-                  "
-                >
-                  <strong
-                    className="
-                      block
-                      text-2xl
-                      font-bold
-                      text-sky-400
-                    "
-                  >
-                    100%
-                  </strong>
-
-                  <span
-                    className="
-                      mt-1
-                      block
-                      text-[10px]
-                      font-medium
+                      font-semibold
                       uppercase
                       tracking-[0.12em]
                       text-slate-500
@@ -297,43 +282,155 @@ export default function Sobre() {
                   >
                     Personalizado
                   </span>
+
+                  <p
+                    className="
+                      mt-2
+                      text-[10px]
+                      leading-5
+                      text-slate-600
+                    "
+                  >
+                    Cada projeto é pensado para uma necessidade
+                    específica.
+                  </p>
                 </div>
 
+                {/* Soluções digitais */}
                 <div
                   className="
-                    col-span-2
+                    group
                     rounded-2xl
                     border
                     border-white/[0.07]
                     bg-white/[0.025]
                     p-4
-                    sm:col-span-1
+                    transition-all
+                    duration-300
+                    hover:border-sky-400/20
+                    hover:bg-sky-400/[0.025]
                   "
                 >
-                  <strong
-                    className="
-                      block
-                      text-2xl
-                      font-bold
-                      text-white
-                    "
-                  >
-                    Full Stack
-                  </strong>
+                  <div className="flex items-center justify-between">
+                    <strong
+                      className="
+                        text-xl
+                        font-bold
+                        tracking-tight
+                        text-white
+                        sm:text-2xl
+                      "
+                    >
+                      Web & Sistemas
+                    </strong>
+
+                    <Code2
+                      aria-hidden="true"
+                      size={17}
+                      strokeWidth={1.7}
+                      className="
+                        text-sky-400/60
+                        transition-colors
+                        duration-300
+                        group-hover:text-sky-400
+                      "
+                    />
+                  </div>
 
                   <span
                     className="
                       mt-1
                       block
                       text-[10px]
-                      font-medium
+                      font-semibold
                       uppercase
                       tracking-[0.12em]
                       text-slate-500
                     "
                   >
-                    Tecnologia
+                    Soluções digitais
                   </span>
+
+                  <p
+                    className="
+                      mt-2
+                      text-[10px]
+                      leading-5
+                      text-slate-600
+                    "
+                  >
+                    Sites e sistemas para empresas e projetos.
+                  </p>
+                </div>
+
+                {/* Equipe */}
+                <div
+                  className="
+                    group
+                    col-span-2
+                    rounded-2xl
+                    border
+                    border-white/[0.07]
+                    bg-white/[0.025]
+                    p-4
+                    transition-all
+                    duration-300
+                    hover:border-sky-400/20
+                    hover:bg-sky-400/[0.025]
+                    sm:col-span-1
+                  "
+                >
+                  <div className="flex items-center justify-between">
+                    <strong
+                      className="
+                        text-2xl
+                        font-bold
+                        tracking-tight
+                        text-white
+                      "
+                    >
+                      +20
+                    </strong>
+
+                    <span
+                      aria-hidden="true"
+                      className="
+                        text-lg
+                        text-sky-400/60
+                        transition-colors
+                        duration-300
+                        group-hover:text-sky-400
+                      "
+                    >
+                      +
+                    </span>
+                  </div>
+
+                  <span
+                    className="
+                      mt-1
+                      block
+                      text-[10px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.12em]
+                      text-slate-500
+                    "
+                  >
+                    Colaboradores
+                  </span>
+
+                  <p
+                    className="
+                      mt-2
+                      text-[10px]
+                      leading-5
+                      text-slate-600
+                    "
+                  >
+                    Uma equipe com diferentes conhecimentos e
+                    especialidades.
+                  </p>
                 </div>
               </div>
             </div>
@@ -396,7 +493,7 @@ export default function Sobre() {
             </div>
           </div>
 
-          {/* Equipe */}
+          {/* Fundadores */}
           <div className="mt-24 sm:mt-28">
             <div
               className="
@@ -439,7 +536,7 @@ export default function Sobre() {
                     "
                   />
 
-                  Nossa equipe
+                  Fundadores
                 </span>
 
                 <h3
@@ -451,9 +548,9 @@ export default function Sobre() {
                     sm:text-4xl
                   "
                 >
-                  Pessoas por trás das{" "}
+                  Quem está à frente da{" "}
                   <span className="text-sky-400">
-                    soluções
+                    TuringDev
                   </span>
                 </h3>
               </div>
@@ -466,18 +563,20 @@ export default function Sobre() {
                   text-slate-500
                 "
               >
-                Conheça as pessoas que fazem parte da equipe
-                e descubra um pouco mais sobre quem está por
-                trás dos nossos projetos.
+                Conheça os fundadores responsáveis pela criação
+                e pelo direcionamento da TuringDev. Eles trabalham
+                em conjunto com uma equipe de mais de 20
+                colaboradores.
               </p>
             </div>
 
-            {/* Cards */}
+            {/* Cards dos fundadores */}
             <div
               className="
                 grid
-                grid-cols-3
+                grid-cols-2
                 gap-2
+                sm:grid-cols-3
                 sm:gap-3
                 lg:grid-cols-4
                 xl:grid-cols-5
@@ -663,9 +762,9 @@ export default function Sobre() {
               relative
               my-auto
               flex
-              max-h-[92vh]
+              max-h-[90vh]
               w-full
-              max-w-[620px]
+              max-w-[560px]
               flex-col
               overflow-hidden
               rounded-[20px]
@@ -674,7 +773,6 @@ export default function Sobre() {
               bg-[#080d18]
               shadow-[0_30px_100px_rgba(0,0,0,0.6)]
               sm:rounded-[24px]
-              sm:max-h-[90vh]
             "
           >
             {/* Glow */}
@@ -694,7 +792,7 @@ export default function Sobre() {
               "
             />
 
-            {/* Botão fechar */}
+            {/* Fechar */}
             <button
               type="button"
               onClick={() => setSelectedIntegrante(null)}
@@ -727,29 +825,40 @@ export default function Sobre() {
                 sm:w-9
               "
             >
-              <X size={15} className="sm:h-[17px] sm:w-[17px]" />
+              <X
+                size={15}
+                className="sm:h-[17px] sm:w-[17px]"
+              />
             </button>
 
             {/* Foto */}
             <div
               className="
                 relative
-                h-[180px]
+                flex
                 w-full
                 shrink-0
+                items-center
+                justify-center
                 overflow-hidden
                 bg-[#050a13]
-                sm:h-[240px]
-                md:h-[300px]
+                px-4
+                py-4
+                sm:px-6
+                sm:py-5
               "
             >
               <img
                 src={selectedIntegrante.foto}
                 alt={`Foto de ${selectedIntegrante.nome}`}
                 className="
-                  h-full
-                  w-full
-                  object-cover
+                  max-h-[220px]
+                  w-auto
+                  max-w-full
+                  rounded-xl
+                  object-contain
+                  sm:max-h-[280px]
+                  md:max-h-[320px]
                 "
               />
 
@@ -760,7 +869,7 @@ export default function Sobre() {
                   absolute
                   inset-0
                   bg-gradient-to-t
-                  from-[#080d18]
+                  from-[#080d18]/80
                   via-transparent
                   to-transparent
                 "
@@ -896,7 +1005,9 @@ export default function Sobre() {
                   {selectedIntegrante.portfolio && (
                     <SocialLink
                       href={selectedIntegrante.portfolio}
-                      icon={<UserRound size={12} />}
+                      icon={
+                        <Code2 size={12} />
+                      }
                       label="Portfólio"
                     />
                   )}
@@ -914,7 +1025,9 @@ export default function Sobre() {
                   {selectedIntegrante.tiktok && (
                     <SocialLink
                       href={selectedIntegrante.tiktok}
-                      icon={<FaTiktok size={12} />}
+                      icon={
+                        <FaTiktok size={12} />
+                      }
                       label="TikTok"
                     />
                   )}

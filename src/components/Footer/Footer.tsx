@@ -231,7 +231,7 @@ export default function Footer() {
 
               {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/turingdev_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -266,7 +266,7 @@ export default function Footer() {
 
               {/* TikTok */}
               <a
-                href="#"
+                href="https://www.tiktok.com/@turingdev"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"

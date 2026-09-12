@@ -5,7 +5,7 @@ import Projetos from './sections/Projetos/Projetos'
 import Servicos from './sections/Servicos/Servicos'
 import Sobre from './sections/Sobre/Sobre'
 import Contato from './sections/Contato/Contato'
-import Footer from './sections/Footer/Footer'
+import Footer from './components/Footer/Footer'
 
 
 function App() {

@@ -248,7 +248,7 @@ export default function Navbar() {
                 py-2.5
                 text-sm
                 font-semibold
-                text-black
+                text-white
                 transition-all
                 duration-200
                 hover:bg-sky-300
@@ -417,7 +417,7 @@ export default function Navbar() {
                 py-3.5
                 text-sm
                 font-semibold
-                text-black
+                text-white
                 transition-all
                 duration-200
                 hover:bg-sky-300

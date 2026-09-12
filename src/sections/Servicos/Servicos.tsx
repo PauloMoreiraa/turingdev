@@ -1,342 +1,285 @@
-import {
-  ArrowLeft,
-  ArrowRight,
-  Code2,
-  Monitor,
-  Palette,
-  PenTool,
-  Rocket,
-  Settings,
-  Smartphone,
-  Waypoints,
-} from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-
-import "./Servicos.css";
-
-const servicos = [
-  {
-    id: "01",
-    titulo: "Sites Institucionais",
-    categoria: "Desenvolvimento Web",
-    descricao:
-      "Sites modernos, responsivos e profissionais para empresas fortalecerem sua presença digital.",
-    icone: Code2,
-  },
-  {
-    id: "02",
-    titulo: "Portfólios",
-    categoria: "Presença Digital",
-    descricao:
-      "Portfólios personalizados para profissionais apresentarem seus trabalhos, projetos e experiências.",
-    icone: Smartphone,
-  },
-  {
-    id: "03",
-    titulo: "Landing Pages",
-    categoria: "Conversão",
-    descricao:
-      "Páginas estratégicas para divulgar produtos, serviços e campanhas com foco em conversão.",
-    icone: Rocket,
-  },
-  {
-    id: "04",
-    titulo: "Sistemas Web",
-    categoria: "Sistemas Personalizados",
-    descricao:
-      "Sistemas web personalizados para automatizar processos e otimizar a operação do seu negócio.",
-    icone: Waypoints,
-  },
-  {
-    id: "05",
-    titulo: "Sistemas Desktop",
-    categoria: "Aplicações",
-    descricao:
-      "Aplicações desktop desenvolvidas sob medida para atender às necessidades específicas da sua empresa.",
-    icone: Monitor,
-  },
-  {
-    id: "06",
-    titulo: "UI/UX Design",
-    categoria: "Design de Interfaces",
-    descricao:
-      "Interfaces modernas, intuitivas e funcionais para proporcionar uma experiência digital eficiente.",
-    icone: Palette,
-  },
-  {
-    id: "07",
-    titulo: "Identidade Visual",
-    categoria: "Branding",
-    descricao:
-      "Criação de logos e identidades visuais para construir marcas profissionais, consistentes e marcantes.",
-    icone: PenTool,
-  },
-  {
-    id: "08",
-    titulo: "Consultoria de TI",
-    categoria: "Tecnologia",
-    descricao:
-      "Orientação tecnológica para transformar ideias, processos e necessidades em soluções digitais.",
-    icone: Settings,
-  },
-];
+import { servicos } from "../../data/servicos";
 
 export default function Servicos() {
-  const [active, setActive] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const wheelRef = useRef<HTMLDivElement>(null);
-  const dragStartX = useRef(0);
-  const dragDistance = useRef(0);
-
-  const total = servicos.length;
-
-  const next = () => {
-    setActive((current) => (current + 1) % total);
-  };
-
-  const previous = () => {
-    setActive((current) => (current - 1 + total) % total);
-  };
-
-  /*
-   * AUTOPLAY
-   *
-   * O carrossel troca automaticamente a cada 4 segundos.
-   *
-   * O autoplay é pausado quando:
-   * - o mouse está sobre os cards;
-   * - o usuário está arrastando.
-   */
-  useEffect(() => {
-    if (isDragging || isHovered) return;
-
-    const interval = setInterval(() => {
-      setActive((current) => (current + 1) % total);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [total, isDragging, isHovered]);
-
-  /*
-   * INÍCIO DO ARRASTO
-   */
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    dragStartX.current = event.clientX;
-    dragDistance.current = 0;
-
-    setIsDragging(true);
-
-    wheelRef.current?.setPointerCapture(event.pointerId);
-  };
-
-  /*
-   * MOVIMENTO DO ARRASTO
-   */
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-
-    dragDistance.current = event.clientX - dragStartX.current;
-  };
-
-  /*
-   * FINALIZA O ARRASTO
-   */
-  const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-
-    const distance = dragDistance.current;
-
-    setIsDragging(false);
-
-    if (wheelRef.current?.hasPointerCapture(event.pointerId)) {
-      wheelRef.current.releasePointerCapture(event.pointerId);
-    }
-
-    /*
-     * Só troca o slide quando o movimento
-     * ultrapassar 60px.
-     */
-    if (Math.abs(distance) > 60) {
-      if (distance < 0) {
-        next();
-      } else {
-        previous();
-      }
-    }
-
-    dragDistance.current = 0;
-  };
-
-  /*
-   * CANCELAMENTO DO ARRASTO
-   */
-  const handlePointerCancel = (event: React.PointerEvent<HTMLDivElement>) => {
-    setIsDragging(false);
-    dragDistance.current = 0;
-
-    if (wheelRef.current?.hasPointerCapture(event.pointerId)) {
-      wheelRef.current.releasePointerCapture(event.pointerId);
-    }
-  };
-
-  /*
-   * POSIÇÃO DOS CARDS
-   */
-  const getPosition = (index: number) => {
-    let position = index - active;
-
-    if (position > total / 2) {
-      position -= total;
-    }
-
-    if (position < -total / 2) {
-      position += total;
-    }
-
-    return position;
-  };
-
   return (
     <section
       id="servicos"
-      className="servicos"
-      aria-labelledby="servicos-titulo"
+      aria-labelledby="servicos-title"
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#030712]
+        px-4
+        py-20
+        sm:px-8
+        sm:py-24
+        lg:px-16
+        lg:py-28
+      "
     >
-      <div className="servicos-background" aria-hidden="true">
-        <div className="servicos-glow servicos-glow-left" />
-        <div className="servicos-glow servicos-glow-right" />
-        <div className="servicos-grid" />
+      {/* Background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
+        <div
+          className="
+            absolute
+            -left-40
+            top-1/3
+            h-80
+            w-80
+            rounded-full
+            bg-sky-500/[0.04]
+            blur-[120px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            -right-40
+            bottom-0
+            h-96
+            w-96
+            rounded-full
+            bg-blue-500/[0.035]
+            blur-[130px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.018]
+            [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
+            [background-size:70px_70px]
+          "
+        />
       </div>
 
-      <div className="servicos-container">
-        <header className="servicos-header">
-          <span
-            className="
-                  mb-3
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-sky-400/20
-                  bg-sky-400/[0.04]
-                  px-3
-                  py-1.5
-                  text-[10px]
-                  font-medium
-                  uppercase
-                  tracking-[0.2em]
-                  text-sky-400
-                  sm:text-xs
-                "
-          >
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
+        {/* Header */}
+        <header
+          className="
+            mb-10
+            flex
+            flex-col
+            gap-6
+            sm:mb-12
+            lg:flex-row
+            lg:items-end
+            lg:justify-between
+          "
+        >
+          <div>
             <span
-              aria-hidden="true"
               className="
-                    h-1.5
-                    w-1.5
-                    shrink-0
-                    rounded-full
-                    bg-sky-400
-                  "
-            />
-            Nossos Serviços
-          </span>
+                mb-4
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                border
+                border-sky-400/15
+                bg-sky-400/[0.035]
+                px-3
+                py-1.5
+                text-[10px]
+                font-semibold
+                uppercase
+                tracking-[0.18em]
+                text-sky-400
+              "
+            >
+              <span
+                aria-hidden="true"
+                className="
+                  h-1.5
+                  w-1.5
+                  rounded-full
+                  bg-sky-400
+                  shadow-[0_0_7px_rgba(56,189,248,0.7)]
+                "
+              />
 
-          <h2
-            id="servicos-titulo"
-            className="
-              text-[clamp(30px,4.5vw,52px)]
-              font-bold
-              leading-[1.1]
-              tracking-[-0.045em]
-            "
-          >
-            Soluções <span className="text-sky-400"> digitais</span> para o seu
-            <span className="text-sky-400"> negócio</span>
-          </h2>
+              Nossos serviços
+            </span>
+
+            <h2
+              id="servicos-title"
+              className="
+                max-w-3xl
+                text-3xl
+                font-bold
+                leading-[1.08]
+                tracking-[-0.045em]
+                text-white
+                sm:text-4xl
+                lg:text-[48px]
+              "
+            >
+              Soluções digitais para{" "}
+              <span className="text-sky-400">
+                diferentes desafios.
+              </span>
+            </h2>
+          </div>
 
           <p
             className="
-              text-[14px]
-              leading-[1.65]
-              max-[700px]:text-[13px]
+              max-w-md
+              text-sm
+              leading-7
+              text-slate-500
             "
           >
-            Desenvolvimento de sites, sistemas, interfaces e soluções digitais
-            para empresas e profissionais.
+            Desenvolvimento de sites, sistemas e experiências
+            digitais pensadas para transformar ideias em soluções
+            funcionais, modernas e eficientes.
           </p>
         </header>
 
+        {/* Serviços */}
         <div
-          className={`servicos-wheel-area ${isDragging ? "dragging" : ""}`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => {
-            setIsHovered(false);
-            setIsDragging(false);
-          }}
+          aria-label="Serviços oferecidos pela TuringDev"
+          className="
+            -mx-4
+            flex
+            gap-3
+            overflow-x-auto
+            px-4
+            pb-1
+
+            [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden
+
+            sm:-mx-8
+            sm:px-8
+
+            lg:mx-0
+            lg:grid
+            lg:grid-cols-4
+            lg:gap-3
+            lg:overflow-visible
+            lg:px-0
+          "
         >
-          <button
-            type="button"
-            className="servicos-control servicos-control-left"
-            onClick={previous}
-            aria-label="Ver serviço anterior"
-          >
-            <ArrowLeft size={20} aria-hidden="true" />
-          </button>
+          {servicos.map((servico) => {
+            const Icon = servico.icone;
 
-          <div
-            ref={wheelRef}
-            className="servicos-wheel"
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={handlePointerCancel}
-          >
-            {servicos.map((servico, index) => {
-              const position = getPosition(index);
-              const Icon = servico.icone;
+            return (
+              <article
+                key={servico.id}
+                className="
+                  group
+                  relative
+                  flex
+                  min-h-[275px]
+                  w-[78vw]
+                  max-w-[290px]
+                  shrink-0
+                  flex-col
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  border-white/[0.07]
+                  bg-white/[0.018]
+                  p-5
+                  backdrop-blur-md
+                  transition-all
+                  duration-300
 
-              return (
+                  hover:border-sky-400/20
+                  hover:bg-sky-400/[0.025]
+
+                  sm:w-[42vw]
+                  sm:max-w-[300px]
+                  sm:p-6
+
+                  lg:min-h-[280px]
+                  lg:w-auto
+                  lg:max-w-none
+                  lg:shrink
+                "
+              >
+                {/* Neon sutil */}
                 <div
-                  key={servico.id}
-                  className={`servicos-card ${position === 0 ? "active" : ""}`}
-                  style={
-                    {
-                      "--position": position,
-                    } as React.CSSProperties
-                  }
-                  aria-hidden={position !== 0}
-                >
-                  <div className="servicos-card-glow" />
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    -right-12
+                    -top-12
+                    h-28
+                    w-28
+                    rounded-full
+                    bg-sky-400/[0.055]
+                    blur-3xl
+                    opacity-0
+                    transition-opacity
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                />
 
-                  <div className="servicos-card-top">
-                    <span
+                <div className="relative z-10 flex h-full flex-col">
+                  {/* Ícone e número */}
+                  <div className="flex items-start justify-between">
+                    <div
+                      aria-hidden="true"
                       className="
-                        servicos-number
-                        text-[12px]
-                        font-bold
-                        tracking-[0.2em]
+                        flex
+                        h-10
+                        w-10
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-xl
+                        border
+                        border-sky-400/10
+                        bg-sky-400/[0.04]
+                        text-sky-400
+                        transition-all
+                        duration-300
+
+                        group-hover:border-sky-400/20
+                        group-hover:bg-sky-400/[0.07]
+                      "
+                    >
+                      <Icon
+                        size={18}
+                        strokeWidth={1.7}
+                      />
+                    </div>
+
+                    <span
+                      aria-hidden="true"
+                      className="
+                        text-[10px]
+                        font-medium
+                        tracking-[0.12em]
+                        text-slate-700
+                        transition-colors
+                        duration-300
+                        group-hover:text-sky-400/50
                       "
                     >
                       {servico.id}
                     </span>
-
-                    <div className="servicos-icon">
-                      <Icon size={23} strokeWidth={1.7} aria-hidden="true" />
-                    </div>
                   </div>
 
-                  <div className="servicos-card-content">
+                  {/* Conteúdo */}
+                  <div className="mt-7 flex flex-1 flex-col">
                     <span
                       className="
-                        servicos-category
                         text-[9px]
                         font-semibold
                         uppercase
-                        tracking-[0.12em]
+                        tracking-[0.16em]
+                        text-sky-400/80
                       "
                     >
                       {servico.categoria}
@@ -344,11 +287,12 @@ export default function Servicos() {
 
                     <h3
                       className="
-                        text-[25px]
+                        mt-2
+                        text-lg
                         font-semibold
-                        leading-[1.2]
+                        leading-snug
                         tracking-[-0.025em]
-                        max-[480px]:text-[22px]
+                        text-white
                       "
                     >
                       {servico.titulo}
@@ -356,70 +300,102 @@ export default function Servicos() {
 
                     <p
                       className="
-                        text-[14px]
-                        leading-[1.7]
-                        max-[480px]:text-[13px]
+                        mt-3
+                        text-xs
+                        leading-6
+                        text-slate-500
                       "
                     >
                       {servico.descricao}
                     </p>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-
-          <button
-            type="button"
-            className="servicos-control servicos-control-right"
-            onClick={next}
-            aria-label="Ver próximo serviço"
-          >
-            <ArrowRight size={20} aria-hidden="true" />
-          </button>
+              </article>
+            );
+          })}
         </div>
 
-        <nav
-          className="servicos-navigation"
-          aria-label="Navegação dos serviços"
+        {/* CTA */}
+        <div
+          className="
+            mt-10
+            flex
+            flex-col
+            gap-5
+            rounded-2xl
+            border
+            border-white/[0.06]
+            bg-white/[0.018]
+            p-5
+            backdrop-blur-md
+            sm:p-6
+            lg:flex-row
+            lg:items-center
+            lg:justify-between
+          "
         >
-          <div className="servicos-dots">
-            {servicos.map((servico, index) => (
-              <button
-                key={servico.id}
-                type="button"
-                className={
-                  index === active ? "servicos-dot active" : "servicos-dot"
-                }
-                onClick={() => setActive(index)}
-                aria-label={`Ver serviço: ${servico.titulo}`}
-                aria-current={index === active ? "true" : undefined}
-              />
-            ))}
-          </div>
-
-          <div
-            className="
-              servicos-counter
-              text-[11px]
-              font-semibold
-              tracking-[0.08em]
-            "
-            aria-label={`Serviço ${active + 1} de ${total}`}
-          >
-            <strong
+          <div className="min-w-0">
+            <h3
               className="
-                text-[inherit]
+                text-base
+                font-semibold
+                tracking-tight
+                text-white
+                sm:text-lg
               "
             >
-              {String(active + 1).padStart(2, "0")}
-            </strong>
+              Tem uma ideia ou projeto em mente?
+            </h3>
 
-            <span>/</span>
-
-            <span>{String(total).padStart(2, "0")}</span>
+            <p
+              className="
+                mt-1
+                max-w-2xl
+                text-xs
+                leading-6
+                text-slate-500
+                sm:text-sm
+              "
+            >
+              Vamos conversar sobre como transformar sua ideia
+              em uma solução digital.
+            </p>
           </div>
-        </nav>
+
+          <a
+            href="#contato"
+            aria-label="Entrar em contato com a TuringDev"
+            className="
+              inline-flex
+              w-full
+              shrink-0
+              items-center
+              justify-center
+              rounded-xl
+              bg-sky-500
+              px-5
+              py-3
+              text-xs
+              font-semibold
+              text-white
+              transition-all
+              duration-300
+
+              hover:bg-sky-400
+              hover:shadow-[0_8px_25px_rgba(14,165,233,0.14)]
+
+              focus:outline-none
+              focus:ring-2
+              focus:ring-sky-400/40
+              focus:ring-offset-2
+              focus:ring-offset-[#030712]
+
+              sm:w-auto
+            "
+          >
+            Fale conosco
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -423,7 +423,7 @@ export default function Home() {
                 px-5
                 text-xs
                 font-semibold
-                text-slate-950
+                text-white
                 transition-all
                 duration-200
                 hover:bg-sky-300

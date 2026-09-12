@@ -1,113 +1,105 @@
 export interface Integrante {
-	id: string;
-	nome: string;
-	cargo: string;
-	foto: string;
-	miniDescricao: string;
-	descricao: string;
+  id: string;
+  nome: string;
+  cargo: string;
+  foto: string;
+  miniDescricao: string;
+  descricao: string;
 
-	formacao?: string[];
-	cursos?: string[];
-	certificacoes?: string[];
-	linguas?: string[];
-	experiencias?: string[];
-
-	linkedin?: string;
-	instagram?: string;
-	github?: string;
-	tiktok?: string;
-	portfolio?: string;
-	curriculo?: string;
+  linkedin?: string;
+  instagram?: string;
+  github?: string;
+  tiktok?: string;
+  portfolio?: string;
 }
 
 export const integrantes: Integrante[] = [
-	{
-		id: "paulo-henrique",
-		nome: "Paulo Moreira",
-		cargo: "CEO & Desenvolvedor",
-		foto: "/equipe/paulo.jpeg",
+  {
+    id: "bruno",
+    nome: "Bruno Vargas",
+    cargo: "CEO & Arquiteto de Software",
+    foto: "https://media.licdn.com/dms/image/v2/D4D03AQF4guapWpLTBw/profile-displayphoto-shrink_400_400/B4DZXlm2gNHAAg-/0/1743313922480?e=1790812800&v=beta&t=xGcud6VCogpr-uQVTehqdxaGCXDaDbKJ1IprI9rdIjo",
 
-		miniDescricao:
-			"Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
+    miniDescricao:
+      "Profissional focado na definição de arquiteturas de software modernas, escaláveis, seguras e eficientes.",
 
-		descricao:
-			"Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
+    descricao:
+      "Arquiteto de Software Sênior com mais de 10 anos de experiência atuando em grandes empresas e projetos de diferentes níveis de complexidade. Experiência na definição de arquiteturas, integração de sistemas e tomada de decisões técnicas, buscando construir soluções estáveis, escaláveis e alinhadas às necessidades do negócio. Atua próximo aos times de desenvolvimento, apoiando decisões técnicas e garantindo boas práticas ao longo de todo o ciclo de desenvolvimento.",
 
-		formacao: [
-			"Análise e Desenvolvimento de Sistemas - Universidade Cidade de São Paulo",
-			"Desenvolvimento de Sistemas - Escola Técnica Estadual de São Paulo",
-		],
+    linkedin: "https://www.linkedin.com/in/bjvargas/",
+    github: "https://github.com/PauloMoreiraa",
+    portfolio: "https://paulomoreiraa.github.io/",
+  },
 
-		cursos: [
-			"UI/UX Design - Cellep em parceria com o Facebok",
-			"General English - Malvern House School London",
-		],
+  {
+    id: "paulo-henrique",
+    nome: "Paulo Moreira",
+    cargo: "CEO & Desenvolvedor",
+    foto: "/equipe/paulo.jpeg",
 
-		certificacoes: [
-			"AWS Partner: Sales Accreditation - Amazon Web Services",
-			"AWS Partner: Technical Accredited - Amazon Web Services",
-		],
+    miniDescricao:
+      "Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
 
-		linguas: [
-			"Português — Nativo",
-			"Inglês — Avançado",
-			"Espanhol — Intermediário",
-			"Coreano — Básico",
-		],
+    descricao:
+      "Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
 
-		experiencias: [
-			"Desenvolvedor - Freelancer (Jan 2026 - Presente)",
-			"Desenvolvedor Full Stack - Muralis (Jul 2024 - Jan 2026)",
-			"Desenvolvedor Full Cycle - DPL Distribuidora de Peças (Mai 2023 - Nov 2023)",
-		],
+    linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
+    github: "https://github.com/PauloMoreiraa",
+    portfolio: "https://paulomoreiraa.github.io/",
+  },
 
-		linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
-		github: "https://github.com/PauloMoreiraa",
-		portfolio: "https://paulomoreiraa.github.io/",
-		curriculo: "/curriculos/paulo-henrique.pdf",
-	},
+  {
+    id: "paulo-henrique",
+    nome: "Paulo Moreira",
+    cargo: "CEO & Desenvolvedor",
+    foto: "/equipe/paulo.jpeg",
 
-	{
-		id: "novo-integrante",
-		nome: "Nome do Integrante",
-		cargo: "Cargo / Especialidade",
-		foto: "/equipe/lucas.jpg",
+    miniDescricao:
+      "Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
 
-		miniDescricao:
-			"Breve descrição que aparecerá no card do integrante.",
+    descricao:
+      "Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
 
-		descricao:
-			"Descrição completa do integrante. Esse texto aparecerá dentro do modal quando o usuário clicar no card.",
+    linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
+    github: "https://github.com/PauloMoreiraa",
+    portfolio: "https://paulomoreiraa.github.io/",
+  },
 
-		formacao: [
-			"Formação acadêmica",
-		],
+  {
+    id: "paulo-henrique",
+    nome: "Paulo Moreira",
+    cargo: "CEO & Desenvolvedor",
+    foto: "/equipe/paulo.jpeg",
 
-		cursos: [
-			"Curso de exemplo",
-		],
+    miniDescricao:
+      "Desenvolvedor focado na criação de soluções digitais modernas, funcionais e escaláveis.",
 
-		certificacoes: [
-			"Certificação de exemplo",
-		],
+    descricao:
+      "Desenvolvedor Full Stack apaixonado por tecnologia e pela criação de soluções digitais. Atua no desenvolvimento de aplicações web, sistemas personalizados e interfaces modernas, buscando sempre unir tecnologia, usabilidade e performance.",
 
-		linguas: [
-			"Português — Nativo",
-			"Inglês — Avançado",
-		],
+    linkedin: "https://www.linkedin.com/in/paulomoreira2004/",
+    github: "https://github.com/PauloMoreiraa",
+    portfolio: "https://paulomoreiraa.github.io/",
+  },
 
-		experiencias: [
-			"Experiência profissional",
-			"Experiência em desenvolvimento",
-		],
+  {
+    id: "novo-integrante",
+    nome: "Nome do Integrante",
+    cargo: "Cargo / Especialidade",
+    foto: "/equipe/lucas.jpg",
 
-		linkedin: "https://www.linkedin.com/",
-		portfolio: "https://seuportfolio.com",
+    miniDescricao:
+      "Breve descrição que aparecerá no card do integrante.",
 
-		// Basta não adicionar uma rede caso a pessoa não tenha.
-		// instagram: "",
-		// github: "",
-		// tiktok: "",
-		// curriculo: "",
-	},
+    descricao:
+      "Descrição do integrante e sua atuação dentro da TuringDev, destacando sua experiência, especialidade e contribuição para os projetos da empresa.",
+
+    linkedin: "https://www.linkedin.com/",
+    portfolio: "https://seuportfolio.com",
+
+    // Adicione somente as redes que o integrante possuir.
+    // instagram: "https://instagram.com/...",
+    // github: "https://github.com/...",
+    // tiktok: "https://tiktok.com/@...",
+  },
 ];

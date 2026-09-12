@@ -1,12 +1,6 @@
 import {
   ArrowUpRight,
-  Award,
-  BookOpen,
-  BriefcaseBusiness,
   ExternalLink,
-  FileText,
-  GraduationCap,
-  Languages,
   UserRound,
   X,
 } from "lucide-react";
@@ -18,7 +12,10 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-import { integrantes, type Integrante } from "../../data/integrantes";
+import {
+  integrantes,
+  type Integrante,
+} from "../../data/integrantes";
 
 export default function Sobre() {
   const [selectedIntegrante, setSelectedIntegrante] =
@@ -52,6 +49,7 @@ export default function Sobre() {
     <>
       <section
         id="sobre"
+        aria-labelledby="sobre-title"
         className="
           relative
           w-full
@@ -65,6 +63,7 @@ export default function Sobre() {
           lg:py-28
         "
       >
+        {/* Background */}
         <div
           aria-hidden="true"
           className="
@@ -154,6 +153,7 @@ export default function Sobre() {
                 "
               >
                 <span
+                  aria-hidden="true"
                   className="
                     h-1.5
                     w-1.5
@@ -167,6 +167,7 @@ export default function Sobre() {
               </span>
 
               <h2
+                id="sobre-title"
                 className="
                   text-[clamp(32px,5vw,54px)]
                   font-bold
@@ -176,7 +177,9 @@ export default function Sobre() {
                 "
               >
                 Experiência diversa,{" "}
-                <span className="text-sky-400">tecnologia</span>{" "}
+                <span className="text-sky-400">
+                  tecnologia
+                </span>{" "}
                 e propósito.
               </h2>
 
@@ -216,6 +219,7 @@ export default function Sobre() {
                 capazes de gerar valor para nossos clientes.
               </p>
 
+              {/* Indicadores */}
               <div
                 className="
                   mt-8
@@ -234,7 +238,14 @@ export default function Sobre() {
                     p-4
                   "
                 >
-                  <strong className="block text-2xl font-bold text-white">
+                  <strong
+                    className="
+                      block
+                      text-2xl
+                      font-bold
+                      text-white
+                    "
+                  >
                     {String(integrantes.length).padStart(2, "0")}
                   </strong>
 
@@ -262,7 +273,14 @@ export default function Sobre() {
                     p-4
                   "
                 >
-                  <strong className="block text-2xl font-bold text-sky-400">
+                  <strong
+                    className="
+                      block
+                      text-2xl
+                      font-bold
+                      text-sky-400
+                    "
+                  >
                     100%
                   </strong>
 
@@ -292,7 +310,14 @@ export default function Sobre() {
                     sm:col-span-1
                   "
                 >
-                  <strong className="block text-2xl font-bold text-white">
+                  <strong
+                    className="
+                      block
+                      text-2xl
+                      font-bold
+                      text-white
+                    "
+                  >
                     Full Stack
                   </strong>
 
@@ -313,7 +338,7 @@ export default function Sobre() {
               </div>
             </div>
 
-            {/* Foto */}
+            {/* Imagem principal */}
             <div
               className="
                 order-2
@@ -345,7 +370,7 @@ export default function Sobre() {
                   "
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=1170&auto=format&fit=crop"
                     alt="Equipe TuringDev reunida"
                     className="
                       h-full
@@ -355,6 +380,7 @@ export default function Sobre() {
                   />
 
                   <div
+                    aria-hidden="true"
                     className="
                       pointer-events-none
                       absolute
@@ -404,6 +430,7 @@ export default function Sobre() {
                   "
                 >
                   <span
+                    aria-hidden="true"
                     className="
                       h-1.5
                       w-1.5
@@ -425,7 +452,9 @@ export default function Sobre() {
                   "
                 >
                   Pessoas por trás das{" "}
-                  <span className="text-sky-400">soluções</span>
+                  <span className="text-sky-400">
+                    soluções
+                  </span>
                 </h3>
               </div>
 
@@ -437,18 +466,18 @@ export default function Sobre() {
                   text-slate-500
                 "
               >
-                Conheça os profissionais que fazem parte da
-                equipe e descubra mais sobre suas experiências,
-                conhecimentos e especialidades.
+                Conheça as pessoas que fazem parte da equipe
+                e descubra um pouco mais sobre quem está por
+                trás dos nossos projetos.
               </p>
             </div>
 
+            {/* Cards */}
             <div
               className="
                 grid
                 grid-cols-3
                 gap-2
-                sm:grid-cols-3
                 sm:gap-3
                 lg:grid-cols-4
                 xl:grid-cols-5
@@ -458,7 +487,10 @@ export default function Sobre() {
                 <button
                   key={integrante.id}
                   type="button"
-                  onClick={() => setSelectedIntegrante(integrante)}
+                  onClick={() =>
+                    setSelectedIntegrante(integrante)
+                  }
+                  aria-label={`Ver perfil de ${integrante.nome}`}
                   className="
                     group
                     relative
@@ -492,6 +524,7 @@ export default function Sobre() {
                   />
 
                   <div
+                    aria-hidden="true"
                     className="
                       pointer-events-none
                       absolute
@@ -520,7 +553,14 @@ export default function Sobre() {
                       sm:p-3.5
                     "
                   >
-                    <div className="flex items-end justify-between gap-2">
+                    <div
+                      className="
+                        flex
+                        items-end
+                        justify-between
+                        gap-2
+                      "
+                    >
                       <div className="min-w-0">
                         <span
                           className="
@@ -553,6 +593,7 @@ export default function Sobre() {
                       </div>
 
                       <span
+                        aria-hidden="true"
                         className="
                           flex
                           h-8
@@ -592,6 +633,7 @@ export default function Sobre() {
         </div>
       </section>
 
+      {/* Modal */}
       {selectedIntegrante && (
         <div
           className="
@@ -601,10 +643,11 @@ export default function Sobre() {
             flex
             items-center
             justify-center
+            overflow-y-auto
             bg-black/75
             p-3
-            backdrop-blur-md
-            sm:p-6
+            backdrop-blur-sm
+            sm:p-5
           "
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) {
@@ -613,245 +656,269 @@ export default function Sobre() {
           }}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="integrante-nome"
             className="
               relative
+              my-auto
               flex
               max-h-[92vh]
               w-full
-              max-w-4xl
+              max-w-[620px]
               flex-col
               overflow-hidden
-              rounded-[28px]
+              rounded-[20px]
               border
-              border-white/[0.09]
+              border-white/[0.08]
               bg-[#080d18]
               shadow-[0_30px_100px_rgba(0,0,0,0.6)]
-              sm:max-h-[88vh]
-              lg:max-h-[90vh]
+              sm:rounded-[24px]
+              sm:max-h-[90vh]
             "
           >
+            {/* Glow */}
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                -right-24
+                -top-24
+                z-10
+                h-56
+                w-56
+                rounded-full
+                bg-sky-400/[0.06]
+                blur-[90px]
+              "
+            />
+
+            {/* Botão fechar */}
             <button
               type="button"
               onClick={() => setSelectedIntegrante(null)}
-              aria-label="Fechar"
+              aria-label="Fechar informações de integrante"
               className="
                 absolute
-                right-4
-                top-4
+                right-3
+                top-3
                 z-30
                 flex
-                h-10
-                w-10
+                h-8
+                w-8
                 cursor-pointer
                 items-center
                 justify-center
                 rounded-full
                 border
-                border-white/10
-                bg-black/30
+                border-white/[0.08]
+                bg-black/45
                 text-slate-400
                 backdrop-blur-md
-                transition
-                hover:border-sky-400/30
-                hover:bg-sky-400/10
+                transition-all
+                duration-200
+                hover:border-sky-400/25
+                hover:bg-sky-400/[0.08]
                 hover:text-sky-400
+                sm:right-4
+                sm:top-4
+                sm:h-9
+                sm:w-9
               "
             >
-              <X size={18} />
+              <X size={15} className="sm:h-[17px] sm:w-[17px]" />
             </button>
 
+            {/* Foto */}
+            <div
+              className="
+                relative
+                h-[180px]
+                w-full
+                shrink-0
+                overflow-hidden
+                bg-[#050a13]
+                sm:h-[240px]
+                md:h-[300px]
+              "
+            >
+              <img
+                src={selectedIntegrante.foto}
+                alt={`Foto de ${selectedIntegrante.nome}`}
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                "
+              />
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-[#080d18]
+                  via-transparent
+                  to-transparent
+                "
+              />
+            </div>
+
+            {/* Conteúdo */}
             <div
               className="
                 min-h-0
-                flex-1
                 overflow-y-auto
-                overscroll-contain
-                [&::-webkit-scrollbar]:w-1
-                [&::-webkit-scrollbar-track]:bg-transparent
-                [&::-webkit-scrollbar-thumb]:rounded-full
-                [&::-webkit-scrollbar-thumb]:bg-white/10
-                hover:[&::-webkit-scrollbar-thumb]:bg-sky-400/30
-                [scrollbar-width:thin]
-                [scrollbar-color:rgba(255,255,255,0.1)_transparent]
-                lg:overflow-y-hidden
-                lg:[&::-webkit-scrollbar]:w-0
-                lg:[scrollbar-width:none]
+                px-5
+                pb-5
+                pt-1
+                sm:px-7
+                sm:pb-7
+                sm:pt-2
               "
             >
-              <div className="grid lg:grid-cols-[280px_1fr]">
-                <div
-                  className="
-                    relative
-                    aspect-square
-                    overflow-hidden
-                    lg:aspect-auto
-                    lg:min-h-[280px]
-                  "
-                >
-                  <img
-                    src={selectedIntegrante.foto}
-                    alt={selectedIntegrante.nome}
-                    className="h-full w-full object-cover"
-                  />
-
-                  <div
-                    className="
-                      absolute
-                      inset-0
-                      bg-gradient-to-t
-                      from-[#080d18]
-                      via-transparent
-                      to-transparent
-                      lg:bg-gradient-to-r
-                    "
-                  />
-                </div>
-
-                <div className="p-5 sm:p-8 lg:p-10">
-                  <span
-                    className="
-                      text-[10px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-sky-400
-                    "
-                  >
-                    {selectedIntegrante.cargo}
-                  </span>
-
-                  <h2
-                    className="
-                      mt-2
-                      pr-10
-                      text-2xl
-                      font-bold
-                      tracking-[-0.04em]
-                      text-white
-                      sm:text-4xl
-                    "
-                  >
-                    {selectedIntegrante.nome}
-                  </h2>
-
-                  <p
-                    className="
-                      mt-5
-                      max-w-2xl
-                      text-sm
-                      leading-7
-                      text-slate-400
-                    "
-                  >
-                    {selectedIntegrante.descricao}
-                  </p>
-
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {selectedIntegrante.linkedin && (
-                      <SocialLink
-                        href={selectedIntegrante.linkedin}
-                        icon={<FaLinkedinIn size={15} />}
-                        label="LinkedIn"
-                      />
-                    )}
-
-                    {selectedIntegrante.portfolio && (
-                      <SocialLink
-                        href={selectedIntegrante.portfolio}
-                        icon={<UserRound size={15} />}
-                        label="Portfólio"
-                      />
-                    )}
-
-                    {selectedIntegrante.github && (
-                      <SocialLink
-                        href={selectedIntegrante.github}
-                        icon={<FaGithub size={16} />}
-                        label="GitHub"
-                      />
-                    )}
-
-                    {selectedIntegrante.instagram && (
-                      <SocialLink
-                        href={selectedIntegrante.instagram}
-                        icon={<FaInstagram size={16} />}
-                        label="Instagram"
-                      />
-                    )}
-
-                    {selectedIntegrante.tiktok && (
-                      <SocialLink
-                        href={selectedIntegrante.tiktok}
-                        icon={<FaTiktok size={15} />}
-                        label="TikTok"
-                      />
-                    )}
-
-                    {selectedIntegrante.curriculo && (
-                      <SocialLink
-                        href={selectedIntegrante.curriculo}
-                        icon={<FileText size={15} />}
-                        label="Currículo"
-                      />
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div
+              {/* Cargo */}
+              <span
                 className="
-                  grid
-                  gap-3
-                  border-t
-                  border-white/[0.06]
-                  p-5
-                  sm:grid-cols-2
-                  sm:gap-4
-                  sm:p-8
-                  lg:grid-cols-3
-                  lg:p-10
+                  inline-flex
+                  items-center
+                  rounded-full
+                  border
+                  border-sky-400/15
+                  bg-sky-400/[0.04]
+                  px-2.5
+                  py-1
+                  text-[8px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.14em]
+                  text-sky-400
+                  sm:px-3
+                  sm:py-1.5
+                  sm:text-[9px]
                 "
               >
-                {selectedIntegrante.formacao?.length ? (
-                  <InfoBlock
-                    icon={<GraduationCap size={17} />}
-                    title="Formação"
-                    items={selectedIntegrante.formacao}
-                  />
-                ) : null}
+                {selectedIntegrante.cargo}
+              </span>
 
-                {selectedIntegrante.cursos?.length ? (
-                  <InfoBlock
-                    icon={<BookOpen size={17} />}
-                    title="Cursos"
-                    items={selectedIntegrante.cursos}
-                  />
-                ) : null}
+              {/* Nome */}
+              <h2
+                id="integrante-nome"
+                className="
+                  mt-2
+                  pr-8
+                  text-[22px]
+                  font-bold
+                  leading-tight
+                  tracking-[-0.035em]
+                  text-white
+                  sm:mt-3
+                  sm:text-3xl
+                "
+              >
+                {selectedIntegrante.nome}
+              </h2>
 
-                {selectedIntegrante.certificacoes?.length ? (
-                  <InfoBlock
-                    icon={<Award size={17} />}
-                    title="Certificações"
-                    items={selectedIntegrante.certificacoes}
-                  />
-                ) : null}
+              {/* Descrição */}
+              <p
+                className="
+                  mt-3
+                  text-[12px]
+                  leading-[1.7]
+                  text-slate-400
+                  sm:mt-4
+                  sm:text-sm
+                  sm:leading-7
+                "
+              >
+                {selectedIntegrante.descricao}
+              </p>
 
-                {selectedIntegrante.linguas?.length ? (
-                  <InfoBlock
-                    icon={<Languages size={17} />}
-                    title="Idiomas"
-                    items={selectedIntegrante.linguas}
-                  />
-                ) : null}
+              {/* Mini descrição */}
+              {selectedIntegrante.miniDescricao && (
+                <div
+                  className="
+                    mt-3
+                    border-l
+                    border-sky-400/30
+                    pl-3
+                    sm:mt-4
+                    sm:pl-4
+                  "
+                >
+                  <p
+                    className="
+                      text-[11px]
+                      leading-[1.6]
+                      text-slate-500
+                      sm:text-xs
+                      sm:leading-6
+                    "
+                  >
+                    {selectedIntegrante.miniDescricao}
+                  </p>
+                </div>
+              )}
 
-                {selectedIntegrante.experiencias?.length ? (
-                  <InfoBlock
-                    icon={<BriefcaseBusiness size={17} />}
-                    title="Experiência"
-                    items={selectedIntegrante.experiencias}
-                    className="sm:col-span-2 lg:col-span-2"
-                  />
-                ) : null}
+              {/* Redes sociais */}
+              <div
+                className="
+                  mt-4
+                  border-t
+                  border-white/[0.06]
+                  pt-4
+                  sm:mt-6
+                  sm:pt-5
+                "
+              >
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {selectedIntegrante.linkedin && (
+                    <SocialLink
+                      href={selectedIntegrante.linkedin}
+                      icon={
+                        <FaLinkedinIn size={12} />
+                      }
+                      label="LinkedIn"
+                    />
+                  )}
+
+                  {selectedIntegrante.github && (
+                    <SocialLink
+                      href={selectedIntegrante.github}
+                      icon={<FaGithub size={13} />}
+                      label="GitHub"
+                    />
+                  )}
+
+                  {selectedIntegrante.portfolio && (
+                    <SocialLink
+                      href={selectedIntegrante.portfolio}
+                      icon={<UserRound size={12} />}
+                      label="Portfólio"
+                    />
+                  )}
+
+                  {selectedIntegrante.instagram && (
+                    <SocialLink
+                      href={selectedIntegrante.instagram}
+                      icon={
+                        <FaInstagram size={13} />
+                      }
+                      label="Instagram"
+                    />
+                  )}
+
+                  {selectedIntegrante.tiktok && (
+                    <SocialLink
+                      href={selectedIntegrante.tiktok}
+                      icon={<FaTiktok size={12} />}
+                      label="TikTok"
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -879,108 +946,36 @@ function SocialLink({
         inline-flex
         cursor-pointer
         items-center
-        gap-2
-        rounded-xl
+        gap-1.5
+        rounded-lg
         border
         border-white/[0.08]
         bg-white/[0.03]
-        px-3.5
-        py-2.5
-        text-xs
+        px-2.5
+        py-2
+        text-[10px]
         font-semibold
         text-slate-300
         transition
         hover:border-sky-400/20
+        hover:bg-sky-400/[0.04]
         hover:text-sky-400
+        sm:gap-2
+        sm:rounded-xl
+        sm:px-3.5
+        sm:py-2.5
+        sm:text-xs
       "
     >
       {icon}
+
       {label}
-      <ExternalLink size={12} />
+
+      <ExternalLink
+        aria-hidden="true"
+        size={10}
+        className="sm:h-3 sm:w-3"
+      />
     </a>
-  );
-}
-
-function InfoBlock({
-  icon,
-  title,
-  items,
-  className = "",
-}: {
-  icon: React.ReactNode;
-  title: string;
-  items: string[];
-  className?: string;
-}) {
-  return (
-    <div
-      className={`
-        rounded-2xl
-        border
-        border-white/[0.06]
-        bg-white/[0.02]
-        p-5
-        ${className}
-      `}
-    >
-      <div className="flex items-center gap-2.5">
-        <span
-          className="
-            flex
-            h-8
-            w-8
-            items-center
-            justify-center
-            rounded-lg
-            border
-            border-sky-400/15
-            bg-sky-400/[0.05]
-            text-sky-400
-          "
-        >
-          {icon}
-        </span>
-
-        <h3
-          className="
-            text-xs
-            font-semibold
-            uppercase
-            tracking-[0.12em]
-            text-white
-          "
-        >
-          {title}
-        </h3>
-      </div>
-
-      <ul className="mt-4 space-y-2.5">
-        {items.map((item, index) => (
-          <li
-            key={`${item}-${index}`}
-            className="
-              flex
-              gap-2.5
-              text-xs
-              leading-5
-              text-slate-500
-            "
-          >
-            <span
-              className="
-                mt-2
-                h-1
-                w-1
-                shrink-0
-                rounded-full
-                bg-sky-400
-              "
-            />
-
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

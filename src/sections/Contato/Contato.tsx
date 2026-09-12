@@ -35,15 +35,13 @@ export default function Contato() {
   const whatsappNumber = "5511963949077";
 
   const whatsappMessage = encodeURIComponent(
-    "Olá! Vim pelo site da TuringDev e gostaria de falar sobre um projeto."
+    "Olá! Vim pelo site da TuringDev e gostaria de falar sobre um projeto.",
   );
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   function handleChange(
-    event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement
-    >
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = event.target;
 
@@ -57,9 +55,7 @@ export default function Contato() {
     }
   }
 
-  async function handleSubmit(
-    event: React.FormEvent<HTMLFormElement>
-  ) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setStatus("enviando");
@@ -77,7 +73,7 @@ export default function Contato() {
         },
         {
           publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-        }
+        },
       );
 
       setFormulario({
@@ -169,11 +165,8 @@ export default function Contato() {
               lg:text-5xl
             "
           >
-            Vamos transformar sua{" "}
-            <span className="text-sky-400">
-              ideia
-            </span>{" "}
-            em realidade.
+            Vamos transformar sua <span className="text-sky-400">ideia</span> em
+            realidade.
           </h2>
 
           <p
@@ -186,10 +179,9 @@ export default function Contato() {
               sm:text-base
             "
           >
-            Tem um projeto em mente, uma ideia ou
-            precisa de uma solução personalizada?
-            Fale com a TuringDev e vamos entender
-            como podemos ajudar.
+            Tem um projeto em mente, uma ideia ou precisa de uma solução
+            personalizada? Fale com a TuringDev e vamos entender como podemos
+            ajudar.
           </p>
         </div>
 
@@ -252,9 +244,8 @@ export default function Contato() {
                   text-slate-400
                 "
               >
-                Preencha o formulário ao lado ou,
-                se preferir, fale diretamente conosco
-                pelo WhatsApp.
+                Preencha o formulário ao lado ou, se preferir, fale diretamente
+                conosco pelo WhatsApp.
               </p>
             </div>
 
@@ -357,10 +348,8 @@ export default function Contato() {
                   text-slate-500
                 "
               >
-                Conte-nos sobre seu projeto, objetivo
-                e o que você precisa. Quanto mais
-                detalhes, melhor poderemos entender
-                sua necessidade.
+                Conte-nos sobre seu projeto, objetivo e o que você precisa.
+                Quanto mais detalhes, melhor poderemos entender sua necessidade.
               </p>
             </div>
           </div>
@@ -665,9 +654,7 @@ export default function Contato() {
               >
                 <CheckCircle2 size={18} />
 
-                <span>
-                  Mensagem enviada com sucesso!
-                </span>
+                <span>Mensagem enviada com sucesso!</span>
               </div>
             )}
 
@@ -692,8 +679,7 @@ export default function Contato() {
                 <XCircle size={18} />
 
                 <span>
-                  Não foi possível enviar a mensagem.
-                  Tente novamente.
+                  Não foi possível enviar a mensagem. Tente novamente.
                 </span>
               </div>
             )}
@@ -737,14 +723,13 @@ export default function Contato() {
                       border-t-slate-950
                     "
                   />
-
                   Enviando...
                 </>
               ) : (
-                <>
+                <span className="flex items-center gap-2 text-white">
                   Enviar mensagem
                   <Send size={16} />
-                </>
+                </span>
               )}
             </button>
           </form>
